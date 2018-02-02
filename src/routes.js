@@ -1,23 +1,32 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import Home from './containers/Home'
+import Tacos from './containers/Tacos'
+import Bus from './components/Bus'
+import Cart from './components/Cart'
+import Sandwiches from './components/Sandwiches'
 
 const routes = [
   {
     path: '/',
-    component: Home
+    component: Bus
+  },
+  {
+    path: '/sandwiches',
+    component: Sandwiches
+  },
+  {
+    path: '/tacos',
+    component: Tacos,
+    routes: [
+      { path: '/tacos/bus',
+        component: Bus
+      },
+      { path: '/tacos/cart',
+        component: Cart
+      }
+    ]
   }
-  // { path: '/tacos',
-  //   component: Tacos,
-  //   routes: [
-  //     { path: '/tacos/bus',
-  //       component: Bus
-  //     },
-  //     { path: '/tacos/cart',
-  //       component: Cart
-  //     }
-  //   ]
-  // }
 ]
 
 // wrap <Route> and use this everywhere instead, then when
