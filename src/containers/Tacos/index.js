@@ -1,17 +1,23 @@
 // ./src/Home.js
-import React from 'react';
-import { NavLink } from 'react-router-dom'
-import Routes, { RouteWithSubRoutes } from '../../routes'
+import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom'
+import Bus from '../../components/Bus'
+import Cart from '../../components/Cart'
 
-
-const Tacos = ({ routes }) => (
-  <div>
-    <h2>Tacos</h2>
-    <ul>
-      <li><NavLink to="/tacos/bus">Bus</NavLink></li>
-      <li><NavLink to="/tacos/cart">Cart</NavLink></li>
-    </ul>
-  </div>
-)
+class Tacos extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Tacos</h1>
+        <ul>
+          <li><Link to="/tacos/bus">Bus</Link></li>
+          <li><Link to="/tacos/cart">Cart</Link></li>
+        </ul>
+        <Route path="/tacos/bus" render={props => <Bus />}/>
+        <Route path="/tacos/cart" render={props => <Cart />}/>
+      </div>
+    );
+  }
+}
 
 export default Tacos;
