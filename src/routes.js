@@ -1,22 +1,29 @@
 import React from 'react'
+import { asyncComponent } from '@jaredpalmer/after'
 import { Route } from 'react-router-dom'
-import Home from './containers/Home'
-import Tacos from './containers/Tacos'
-import Sandwiches from './components/Sandwiches'
 
 const routes = [
   {
     path: '/',
     exact: true,
-    component: Home
+    component: asyncComponent({
+      loader: () => import('./containers/Home'), // required
+      placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
+    })
   },
   {
     path: '/sandwiches',
-    component: Sandwiches
+    component: asyncComponent({
+      loader: () => import('./components/Sandwiches'), // required
+      placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
+    })
   },
   {
     path: '/tacos',
-    component: Tacos
+    component: asyncComponent({
+      loader: () => import('./containers/Tacos'), // required
+      placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
+    })
   }
 ]
 
