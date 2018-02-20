@@ -1,6 +1,7 @@
 {
   "name": "my-razzle-app",
   "version": "0.8.12",
+  "author": "Yoga Kurniawan",
   "license": "MIT",
   "scripts": {
     "start": "razzle start",
