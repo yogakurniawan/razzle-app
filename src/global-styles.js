@@ -1,10 +1,8 @@
 import { injectGlobal } from 'styled-components'
-import styledNormalize from 'styled-normalize'
 import styledSanitize from 'styled-sanitize'
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
-  ${styledNormalize}
   ${styledSanitize}
 
   html {

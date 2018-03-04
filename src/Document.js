@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ServerStyleSheet } from 'styled-components'
 import { AfterRoot, AfterData } from '@jaredpalmer/after';
 
-export default class Document extends Component {
+class Document extends Component {
   static getInitialProps({ assets, data, renderPage }) {
     const sheet = new ServerStyleSheet()
     const page = renderPage(App => props => sheet.collectStyles(<App {...props} />))
@@ -43,3 +43,5 @@ export default class Document extends Component {
     );
   }
 }
+
+export default Document

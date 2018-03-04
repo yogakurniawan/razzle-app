@@ -1,5 +1,4 @@
-// ./src/Home.js
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import { asyncComponent } from '@jaredpalmer/after'
 
@@ -25,4 +24,4 @@ class Tacos extends Component {
   }
 }
 
-export default Tacos;
+export default Tacos
