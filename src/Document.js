@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet, injectGlobal } from 'styled-components'
 import { AfterRoot, AfterData } from '@jaredpalmer/after';
+import styledSanitize from 'styled-sanitize'
+
+injectGlobal`
+  ${styledSanitize}
+`
 
 class Document extends Component {
   static getInitialProps({ assets, data, renderPage }) {
