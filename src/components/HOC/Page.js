@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { ThemeProvider } from 'styled-components'
+import theme from './Theme'
 
 const page = WrappedComponent => {
   class Page extends Component {
@@ -15,7 +17,9 @@ const page = WrappedComponent => {
     render() {
       const { initialState, ...rest } = this.props
       return (
-        <WrappedComponent {...rest} />
+        <ThemeProvider theme={theme}>
+          <WrappedComponent {...rest} />
+        </ThemeProvider>
       )
     }
   }
