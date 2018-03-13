@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components';
 import { themeProp } from 'utils/theme'
-import * as defaultTheme from './defaultTheme';
-
-const {
-  btnFontWeight
-} = defaultTheme
+import { colorYiq } from 'utils/color-functions'
 
 const ButtonStyle = css`
   user-select: none;
@@ -44,5 +40,24 @@ export const ThemedButton = styled.button`
 `;
 
 export const Button = styled.button`
-  font-weight: ${themeProp('btnFontWeight', btnFontWeight)};
+  ${({ theme, color }) =>
+    css`
+      color: ${colorYiq(theme[color])};
+      background-color: ${theme[color]};
+      border-color: ${theme[color]};
+    `
+  }
+  font-weight: ${themeProp('btnFontWeight')};
+  &:hover {
+
+  }
+  &:focus {
+
+  }
+  &:disabled {
+
+  }
+  &:active {
+
+  }
 `
