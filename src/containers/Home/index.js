@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { DownloadButton, ThemedButton, Button } from 'components/Button'
+import { Button } from 'components/Button'
 import Page from 'components/HOC/Page'
 
 class Home extends Component {
@@ -11,9 +11,7 @@ class Home extends Component {
           <li><Link to="/sandwiches">Sandwiches</Link></li>
           <li><Link to="/tacos">Tacos</Link></li>
         </ul>
-        <DownloadButton>Download</DownloadButton>
-        <ThemedButton>Themed</ThemedButton>
-        <Button>Themed</Button>
+        <Button color="primary" outline>Themed</Button>
       </div>
     );
   }

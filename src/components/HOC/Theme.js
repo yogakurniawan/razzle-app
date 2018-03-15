@@ -1,5 +1,7 @@
 const theme = {
   btnFontWeight: 'normal',
+  btnFocusBoxShadow: '0 0 0 .2rem rgba(0,123,255,0.25)',
+  btnDisabledOpacity: '.65',  
   main: 'mediumseagreen',
   primary: '#007bff',
   secondary: '#6c757d',

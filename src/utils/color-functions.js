@@ -1,5 +1,6 @@
 import mix from 'polished/lib/color/mix'
 import parseToRgb from 'polished/lib/color/parseToRgb'
+import rgba from 'polished/lib/color/rgba'
 
 const themeColorInterval = 0.08
 
@@ -15,6 +16,10 @@ export function colorYiq(color) {
   }
 
   return '#fff'
+}
+
+export function sassRgba(color, alpha) {
+  return rgba(Object.assign(parseToRgb(color), { alpha }));
 }
 
 // Request a theme color level

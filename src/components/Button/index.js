@@ -2,32 +2,6 @@ import styled, { css } from 'styled-components';
 import { themeProp } from 'utils/theme'
 import { colorYiq } from 'utils/color-functions'
 
-const ButtonStyle = css`
-  user-select: none;
-  border: 1px solid transparent;
-  display: inline-block;
-  height: 28px;
-  padding: 0 8px;
-  font-size: 14px;
-  line-height: 1;
-  fill: currentColor;
-  transition: all .2s ease-in-out;
-  text-align: center;
-  border-radius: 5px;
-  &:active {
-    border-style: solid;
-  }
-`
-
-export const DownloadButton = styled.button`
-  ${ButtonStyle}
-  background-color: #3cb46e;
-  color: #fff;
-  &:hover {
-    background-color: #37a866;
-  }
-`
-
 export const ThemedButton = styled.button`
   font-size: 1em;
   margin: 1em;
@@ -47,17 +21,42 @@ export const Button = styled.button`
       border-color: ${theme[color]};
     `
   }
+  ${({ theme, outline, color }) =>
+  outline && css`
+    color: ${theme[color]};
+    background-color: transparent;
+    background-image: none;
+    border-color: ${theme[color]};
+    border-width: 2px;
+    &:hover {
+      color: #fff;
+      background-color: ${theme[color]};
+      border-color: ${theme[color]};
+    }
+    &:disabled {
+      color: ${theme[color]};
+      background-color: transparent;
+    }
+  `}
+  user-select: none;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  text-align: center;
+  vertical-align: middle;
   font-weight: ${themeProp('btnFontWeight')};
-  &:hover {
-
+  &:hover, &:focus {
+    text-decoration: none;
   }
-  &:focus {
-
+  &:focus, &:active {
+    outline: 0;
+  }
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
   }
   &:disabled {
-
-  }
-  &:active {
-
+    opacity: ${themeProp('btnDisabledOpacity')};
+    box-shadow: none;
   }
 `
