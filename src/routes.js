@@ -4,6 +4,14 @@ import { Route } from 'react-router-dom'
 
 const routes = [
   {
+    path: '/login',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./containers/Login'), // required
+      placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
+    })
+  },
+  {
     path: '/',
     exact: true,
     component: asyncComponent({

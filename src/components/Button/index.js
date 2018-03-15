@@ -2,17 +2,6 @@ import styled, { css } from 'styled-components';
 import { themeProp } from 'utils/theme'
 import { colorYiq } from 'utils/color-functions'
 
-export const ThemedButton = styled.button`
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
-
-  /* Color the border and text with theme.main */
-  color: ${props => props.theme.main};
-  border: 2px solid ${props => props.theme.main};
-`;
-
 export const Button = styled.button`
   ${({ theme, color }) =>
     css`
@@ -28,6 +17,8 @@ export const Button = styled.button`
     background-image: none;
     border-color: ${theme[color]};
     border-width: 2px;
+    border-style: solid;
+    border-image: initial;
     &:hover {
       color: #fff;
       background-color: ${theme[color]};
@@ -41,6 +32,7 @@ export const Button = styled.button`
   user-select: none;
   padding: .375rem .75rem;
   font-size: 1rem;
+  white-space: nowrap;
   line-height: 1.5;
   border-radius: .25rem;
   text-align: center;
