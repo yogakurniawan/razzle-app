@@ -11,6 +11,23 @@ const theme = {
   danger: '#dc3545',
   light: '#f8f9fa',
   dark: '#343a40',
+  fontSizeBase: '1rem',
+  inputPaddingY: '.375rem',
+  inputPaddingX: '.75rem',
+  inputLineHeight: '1.5',
+  inputColor: '#495057',
+  inputBg: '#fff',
+  inputBorderWidth: '1px',
+  inputBorderRadius: '.25rem',
+  inputBoxShadow: 'inset 0 1px 1px rgba(0,0,0,0.075)',
+  inputBorderColor: '#ced4da',
+  inputTransition: 'borderColor .15s ease-in-out,boxShadow .15s ease-in-out',
+  inputPlaceholderColor: '#6c757d',
+  inputDisabledBg: '#e9ecef',
+  inputFocusColor: '#495057',
+  inputFocusBg: '#fff',
+  inputFocusBorderColor: 'mediumseagreen',
+  inputFocusBoxShadow: '0 0 0 0.2rem rgba(60, 179, 113, 0.25)',
   flexboxgrid: {
     // Defaults
     gridSize: 12, // rem

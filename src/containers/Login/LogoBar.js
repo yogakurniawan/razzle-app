@@ -5,6 +5,7 @@ import Logo from './Logo'
 
 const StyledRow = styled(Row) `
   padding: 1.2rem;
+  border-bottom: 1px solid #e4e4e4;
 `
 
 export default function LogoBar() {

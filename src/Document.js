@@ -17,7 +17,7 @@ injectGlobal`
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     line-height: 1.43;
-    color: #484848;
+    color: #8d8d8f;
     background-color: #fff;
   }
 
