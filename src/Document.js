@@ -17,7 +17,7 @@ injectGlobal`
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     line-height: 1.43;
-    color: #8d8d8f;
+    color: #495057;
     background-color: #fff;
   }
 
@@ -134,6 +134,7 @@ class Document extends Component {
           <meta charSet="utf-8" />
           <title>Welcome to the Afterparty</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="stylesheet" href="/static/fontawesome/css/fa-solid.min.css" />          
           {helmet.title.toComponent()}
           {helmet.meta.toComponent()}
           {helmet.link.toComponent()}
