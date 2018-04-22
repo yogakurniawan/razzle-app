@@ -4,8 +4,7 @@ import { themeProp } from 'utils/theme'
 export const Input = styled.input`
   display: block;
   width: 100%;
-  padding: ${themeProp('inputPaddingY')}
-    ${themeProp('inputPaddingX')};
+  padding: .375rem .75rem;
   font-size: ${themeProp('fontSizeBase')};
   line-height: ${themeProp('inputLineHeight')};
   color: ${themeProp('inputColor')};
@@ -56,7 +55,7 @@ export const InputGroup = styled.div `
 export const InputGroupText = styled.div `
   display: flex;
   align-items: center;
-  padding: ${themeProp('inputPaddingY')} ${themeProp('inputPaddingX')};
+  padding: .375rem .75rem;
   margin-bottom: 0;
   font-size: ${themeProp('fontSizeBase')};
   font-weight: 400;

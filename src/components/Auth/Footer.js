@@ -7,6 +7,7 @@ const Div = styled.div `
   bottom: 0;
   left: 0;
   padding: 1rem;
+  border-top: 1px solid #e4e4e4;
   background-color: #fff;
   text-align: center;
 `

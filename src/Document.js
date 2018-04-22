@@ -118,14 +118,14 @@ class Document extends Component {
     const sheet = new ServerStyleSheet()
     const page = renderPage(App => props => sheet.collectStyles(<App {...props} />))
     const styleTags = sheet.getStyleElement()
-    return { assets, data, ...page, styleTags };
+    return { assets, data, ...page, styleTags }
   }
 
   render() {
-    const { helmet, assets, data, styleTags } = this.props;
+    const { helmet, assets, data, styleTags } = this.props
     // get attributes from React Helmet
-    const htmlAttrs = helmet.htmlAttributes.toComponent();
-    const bodyAttrs = helmet.bodyAttributes.toComponent();
+    const htmlAttrs = helmet.htmlAttributes.toComponent()
+    const bodyAttrs = helmet.bodyAttributes.toComponent()
 
     return (
       <html {...htmlAttrs}>
@@ -134,7 +134,7 @@ class Document extends Component {
           <meta charSet="utf-8" />
           <title>Welcome to the Afterparty</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="stylesheet" href="/static/fontawesome/css/fa-solid.min.css" />          
+          <link rel="stylesheet" href="/static/fontawesome/css/fa-solid.min.css" />
           {helmet.title.toComponent()}
           {helmet.meta.toComponent()}
           {helmet.link.toComponent()}

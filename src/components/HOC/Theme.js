@@ -1,7 +1,4 @@
 const theme = {
-  btnFontWeight: 'normal',
-  btnFocusBoxShadow: '0 0 0 .2rem rgba(0,123,255,0.25)',
-  btnDisabledOpacity: '.65',  
   main: 'mediumseagreen',
   primary: '#007bff',
   secondary: '#6c757d',
@@ -12,8 +9,6 @@ const theme = {
   light: '#f8f9fa',
   dark: '#343a40',
   fontSizeBase: '1rem',
-  inputPaddingY: '.375rem',
-  inputPaddingX: '.75rem',
   inputLineHeight: '1.5',
   inputColor: '#495057',
   inputBg: '#fff',

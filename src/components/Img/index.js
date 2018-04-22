@@ -5,8 +5,8 @@
  * Renders an image, enforcing the usage of the alt="" tag
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 function Img(props) {
   return (
@@ -22,6 +22,6 @@ Img.propTypes = {
   ]).isRequired,
   alt: PropTypes.string.isRequired,
   className: PropTypes.string,
-};
+}
 
-export default Img;
+export default Img

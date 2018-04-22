@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
-import { themeProp } from 'utils/theme'
+import styled, { css } from 'styled-components'
+import { Link } from 'react-router-dom'
 import { colorYiq } from 'utils/color-functions'
 
-export const Button = styled.button`
+const baseButtonCss = css`
   ${({ theme, color }) =>
     css`
       color: ${colorYiq(theme[color])};
@@ -11,7 +11,7 @@ export const Button = styled.button`
     `
   }
   ${({ theme, outline, color }) =>
-  outline && css`
+    outline && css`
     color: ${theme[color]};
     background-color: transparent;
     background-image: none;
@@ -37,7 +37,7 @@ export const Button = styled.button`
   border-radius: .25rem;
   text-align: center;
   vertical-align: middle;
-  font-weight: ${themeProp('btnFontWeight')};
+  font-weight: normal;
   &:hover, &:focus {
     text-decoration: none;
   }
@@ -48,7 +48,17 @@ export const Button = styled.button`
     cursor: pointer;
   }
   &:disabled {
-    opacity: ${themeProp('btnDisabledOpacity')};
+    opacity: 0.65;
     box-shadow: none;
   }
+`
+
+export const Button = styled.button`
+  ${baseButtonCss}
+`
+
+export const ButtonLink = styled(Link)`
+  ${baseButtonCss}
+  display: inline-block;
+  text-decoration: none;
 `
