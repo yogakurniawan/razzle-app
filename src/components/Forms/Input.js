@@ -6,15 +6,15 @@ export const Input = styled.input`
   width: 100%;
   padding: .375rem .75rem;
   font-size: ${themeProp('fontSizeBase')};
-  line-height: ${themeProp('inputLineHeight')};
+  line-height: 1.5;
   color: ${themeProp('inputColor')};
   background-color: ${themeProp('inputBg')};
   background-image: none;
   background-clip: padding-box;
-  border: ${themeProp('inputBorderWidth')} solid ${themeProp('inputBorderColor')};
+  border: 1px solid ${themeProp('inputBorderColor')};
   border-radius: ${themeProp('inputBorderRadius')};
-  box-shadow: ${themeProp('inputBoxShadow')};
-  transition: ${themeProp('inputTransition')};
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  transition: borderColor .15s ease-in-out,boxShadow .15s ease-in-out;
   &::placeholder {
     color: ${themeProp('inputPlaceholderColor')};
     opacity: 1;
@@ -30,9 +30,9 @@ export const Input = styled.input`
   &:focus {
     color: ${themeProp('inputFocusColor')};
     background-color: ${themeProp('inputFocusBg')};
-    border-color: ${themeProp('inputFocusBorderColor')};
+    border-color: ${themeProp('primary')};
     outline: 0;
-    box-shadow: ${themeProp('inputFocusBoxShadow')};
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
   }
 `
 
@@ -64,7 +64,7 @@ export const InputGroupText = styled.div `
   text-align: center;
   white-space: nowrap;
   background-color: #e9ecef;
-  border: ${themeProp('inputBorderWidth')} solid ${themeProp('inputBorderColor')};
+  border: 1px solid ${themeProp('inputBorderColor')};
   border-radius: ${themeProp('inputBorderRadius')};
 `
 

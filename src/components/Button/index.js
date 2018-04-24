@@ -10,25 +10,6 @@ const baseButtonCss = css`
       border-color: ${theme[color]};
     `
   }
-  ${({ theme, outline, color }) =>
-    outline && css`
-    color: ${theme[color]};
-    background-color: transparent;
-    background-image: none;
-    border-color: ${theme[color]};
-    border-width: 2px;
-    border-style: solid;
-    border-image: initial;
-    &:hover {
-      color: #fff;
-      background-color: ${theme[color]};
-      border-color: ${theme[color]};
-    }
-    &:disabled {
-      color: ${theme[color]};
-      background-color: transparent;
-    }
-  `}
   user-select: none;
   padding: .375rem .75rem;
   font-size: 1rem;
@@ -53,12 +34,40 @@ const baseButtonCss = css`
   }
 `
 
+const buttonOutlineBaseCss = css`
+  ${({ theme, color }) =>
+    css`
+    color: ${theme[color]};
+    background-color: transparent;
+    background-image: none;
+    border-color: ${theme[color]};
+    border-width: 2px;
+    border-style: solid;
+    border-image: initial;
+    &:hover {
+      color: #fff;
+      background-color: ${theme[color]};
+      border-color: ${theme[color]};
+    }
+    &:disabled {
+      color: ${theme[color]};
+      background-color: transparent;
+    }
+  `}
+`
+
 export const Button = styled.button`
   ${baseButtonCss}
 `
 
-export const ButtonLink = styled(Link)`
+export const ButtonOutline = styled.button`
   ${baseButtonCss}
+  ${buttonOutlineBaseCss}
+`
+
+export const ButtonLinkOutline = styled(Link)`
+  ${baseButtonCss}
+  ${buttonOutlineBaseCss}
   display: inline-block;
   text-decoration: none;
 `

@@ -27,7 +27,7 @@ export default function AuthForm({ authType, onSubmit }) {
   return (
     <Container>
       <Row center="xs">
-        <SubContainer lg={5} md={8} sm={8} xs={10}>
+        <SubContainer lg={4} md={8} sm={8} xs={10}>
           <TopContainer center="xs">
             <Col lg={8} md={6} sm={8} xs={10}>
               <h1>{ title }</h1>
@@ -53,7 +53,7 @@ export default function AuthForm({ authType, onSubmit }) {
                   </InputGroup>
                 </Div>
                 <Div align="right">
-                  <StyledButton type="submit" color="main" outline>{ title }</StyledButton>
+                  <StyledButton type="submit" color="primary">{ title }</StyledButton>
                 </Div>
               </form>
             </Col>
@@ -68,7 +68,7 @@ export default function AuthForm({ authType, onSubmit }) {
             </Col>
             <Col lg={3} md={2} sm={3} xs={4}>
               <Div align="right">
-                <StyledButtonLink to={`/${authDirection}`} color="main" outline>{ authButtonText }</StyledButtonLink>
+                <StyledButtonLink to={`/${authDirection}`} color="primary">{ authButtonText }</StyledButtonLink>
               </Div>
             </Col>
           </BottomContainer>

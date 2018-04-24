@@ -1,23 +1,19 @@
 import React from 'react'
 import { asyncComponent } from '@jaredpalmer/after'
 import { Route } from 'react-router-dom'
+import Signup from 'containers/Signup'
+import Signin from 'containers/Signin'
 
 const routes = [
   {
     path: '/signin',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./containers/Signin'), // required
-      placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
-    })
+    component: Signin
   },
   {
     path: '/signup',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./containers/Signup'), // required
-      placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
-    })
+    component: Signup
   },
   {
     path: '/',

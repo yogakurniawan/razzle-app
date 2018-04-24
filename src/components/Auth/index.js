@@ -10,8 +10,8 @@ function Auth({ form }) {
   const authForm = (<FormComponent />)
   return (
     <div>
+      <LogoBar />
       <StyledGrid fluid>
-        <LogoBar />
         { authForm }
       </StyledGrid>
       <Footer />
