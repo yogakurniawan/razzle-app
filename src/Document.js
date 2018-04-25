@@ -123,6 +123,7 @@ class Document extends Component {
 
   render() {
     const { helmet, assets, data, styleTags } = this.props
+    console.log(helmet)
     // get attributes from React Helmet
     const htmlAttrs = helmet.htmlAttributes.toComponent()
     const bodyAttrs = helmet.bodyAttributes.toComponent()

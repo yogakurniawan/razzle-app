@@ -8,6 +8,7 @@ export const StyledGrid = styled(Grid)`
 `;
 
 export const SubContainer = styled(Col) `
+  margin: 0 auto;
   border: 2px solid #e4e4e4;
   min-height: 22rem;
   border-radius: .25rem;
