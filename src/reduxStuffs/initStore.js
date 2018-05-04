@@ -1,13 +1,18 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import reducers from './reducers'
+import customMiddleware from './middleware'
 
 const initStore = (initialState = {}) => {
   if (process.browser && window.__store) {
     return window.__store
   }
 
-  const middleware = []
+  const middleware = [
+    customMiddleware,
+    thunk
+  ]
 
   const enhancers = [
     applyMiddleware(...middleware),

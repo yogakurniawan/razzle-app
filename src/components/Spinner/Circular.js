@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { circular } from "../../utils/animations";
-import { getSize, getColor } from "../../utils/common";
+import React from "react"
+import styled from "styled-components"
+import { circular } from "../../utils/animations"
+import { getSize, getColor } from "./utils"
 
 const Circular = ({ color, size }) => {
   const Spinner = styled.div`
     position: relative;
     width: ${getSize(size)};
     height: ${getSize(size)};
-  `;
+  `
 
   const Circle = styled.div`
     width: 100%;
@@ -26,74 +26,84 @@ const Circular = ({ color, size }) => {
       border-radius: 100%;
       animation: ${circular} 1.2s infinite ease-in-out both;
     }
-  `;
+  `
 
   const Circle2 = Circle.extend`
     transform: rotate(30deg);
     &::before {
       animation-delay: -1.1s;
     }
-  `;
+  `
+
   const Circle3 = Circle.extend`
     transform: rotate(60deg);
     &::before {
       animation-delay: -1s;
     }
-  `;
+  `
+
   const Circle4 = Circle.extend`
     transform: rotate(90deg);
     &::before {
       animation-delay: -0.9s;
     }
-  `;
+  `
+
   const Circle5 = Circle.extend`
     transform: rotate(120deg);
     &::before {
       animation-delay: -0.8s;
     }
-  `;
+  `
+
   const Circle6 = Circle.extend`
     transform: rotate(150deg);
     &::before {
       animation-delay: -0.7s;
     }
-  `;
+  `
+
   const Circle7 = Circle.extend`
     transform: rotate(180deg);
     &::before {
       animation-delay: -0.6s;
     }
-  `;
+  `
+
   const Circle8 = Circle.extend`
     transform: rotate(210deg);
     &::before {
       animation-delay: -0.5s;
     }
-  `;
+  `
+
   const Circle9 = Circle.extend`
     transform: rotate(240deg);
     &::before {
       animation-delay: -0.4s;
     }
-  `;
+  `
+
   const Circle10 = Circle.extend`
     transform: rotate(270deg);
     &::before {
       animation-delay: -0.3s;
     }
-  `;
+  `
+
   const Circle11 = Circle.extend`
     transform: rotate(300deg);
     &::before {
       animation-delay: -0.2s;
     }
-  `;
+  `
+
   const Circle12 = Circle.extend`
     transform: rotate(330deg);
     &::before {
       animation-delay: -0.1s;
     }
-  `;
+  `
 
   return (
     <Spinner size={size}>
@@ -113,4 +123,4 @@ const Circular = ({ color, size }) => {
   );
 };
 
-export default Circular;
+export default Circular

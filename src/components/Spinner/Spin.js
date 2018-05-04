@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 const loading = keyframes`
   0% {
@@ -46,4 +46,4 @@ const Spin = styled.div`
   }
 `;
 
-export default Spin;
+export default Spin

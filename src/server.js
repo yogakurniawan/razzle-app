@@ -1,11 +1,11 @@
-import express from 'express';
-import { render } from '@jaredpalmer/after';
-import routes from './routes';
-import MyDocument from './Document';
+import express from 'express'
+import { render } from '@jaredpalmer/after'
+import routes from './routes'
+import MyDocument from './Document'
 
-const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
 
-const server = express();
+const server = express()
 server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
@@ -18,12 +18,12 @@ server
         document: MyDocument,
         routes,
         assets
-      });
-      res.send(html);
+      })
+      res.send(html)
     } catch (error) {
-      console.log(error);
-      res.json(error);
+      console.log(error)
+      res.json(error)
     }
-  });
+  })
 
-export default server;
+export default server

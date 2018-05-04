@@ -8,7 +8,7 @@ const page = WrappedComponent => {
       const otherProps = WrappedComponent.getInitialProps
         ? await WrappedComponent.getInitialProps({ ...context })
         : {}
-
+      console.log(otherProps)
       return {
         ...otherProps
       }

@@ -1,4 +1,4 @@
-import * as firebase from "firebase";
+import * as firebase from "firebase"
 
 const config = {
   apiKey: "AIzaSyAOrmzsApwFAYSDJ9lIbsUT6ZiOHAZipwM",
@@ -7,13 +7,13 @@ const config = {
   projectId: "radiant-fire-8622",
   storageBucket: "radiant-fire-8622.appspot.com",
   messagingSenderId: "443846187284"
-};
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(config);
 }
 
-const db = firebase.database();
-const auth = firebase.auth();
+if (!firebase.apps.length) {
+  firebase.initializeApp(config)
+}
 
-export { db, auth };
+const db = firebase.database()
+const auth = firebase.auth()
+
+export { db, auth }

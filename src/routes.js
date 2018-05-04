@@ -3,8 +3,13 @@ import { asyncComponent } from '@jaredpalmer/after'
 import { Route } from 'react-router-dom'
 import Signup from 'containers/Signup'
 import Signin from 'containers/Signin'
+import Root from 'containers/Root'
 
 const routes = [
+  {
+    path: '/',
+    component: Root, //  providers could go here and RootLayout if needed 
+  },
   {
     path: '/signin',
     exact: true,
@@ -14,14 +19,6 @@ const routes = [
     path: '/signup',
     exact: true,
     component: Signup
-  },
-  {
-    path: '/',
-    exact: true,
-    component: asyncComponent({
-      loader: () => import('./containers/Home'), // required
-      placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
-    })
   },
   {
     path: '/sandwiches',
@@ -44,8 +41,8 @@ const routes = [
 export const RouteWithSubRoutes = (route) => (
   <Route path={route.path} exact={route.exact} render={props => (
     // pass the sub-routes down to keep nesting
-    <route.component {...props} routes={route.routes}/>
-  )}/>
+    <route.component {...props} routes={route.routes} />
+  )} />
 )
 
 export default routes

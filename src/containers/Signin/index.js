@@ -7,7 +7,6 @@ class Signin extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    console.log(this)
   }
 
   render() {
