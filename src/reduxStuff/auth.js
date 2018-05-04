@@ -25,7 +25,7 @@ function auth(state = {
         ...state,
         loading: false,
         userData: null,
-        error: 
+        error
       }
     default:
       return state

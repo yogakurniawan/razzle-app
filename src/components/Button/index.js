@@ -60,6 +60,10 @@ export const Button = styled.button`
   ${baseButtonCss}
 `
 
+export const ButtonLink = styled(Link)`
+  ${baseButtonCss}
+`
+
 export const ButtonOutline = styled.button`
   ${baseButtonCss}
   ${buttonOutlineBaseCss}

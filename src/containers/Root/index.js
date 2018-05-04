@@ -5,7 +5,7 @@ import Home from 'containers/Home'
 import Signin from 'containers/Signin'
 import Signup from 'containers/Signup'
 import Page from 'components/HOC/Page'
-import initStore from 'reduxStuffs/initStore'
+import initStore from 'reduxStuff/initStore'
 
 const store = initStore()
 

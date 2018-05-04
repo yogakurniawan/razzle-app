@@ -29,6 +29,8 @@ export const Div = styled.div`
 
 export const Container = styled.div`
   padding: 1.5rem 0;
+  max-width: 95rem;
+  margin: 1rem auto 0 auto;
 `
 
 export const TopContainer = styled(Row) `
