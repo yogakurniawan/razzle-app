@@ -5,7 +5,6 @@ import AuthForm from 'components/Auth/AuthForm'
 import * as authActions from 'actions/auth'
 
 class Signin extends Component {
-  state = {}
 
   onSubmit = (values) => {
     const { signin } = this.props
@@ -14,8 +13,9 @@ class Signin extends Component {
   }
 
   render() {
+    const { isSigningIn } = this.props
     const AuthFormComponent = () => (
-      <AuthForm authType="signin" onSubmit={this.onSubmit} />
+      <AuthForm isSubmitting={isSigningIn} authType="signin" onSubmit={this.onSubmit} />
     )
     return (
       <React.Fragment>
@@ -30,6 +30,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
+  isSigningIn: state.auth.loading
 })
 
 export default connect(

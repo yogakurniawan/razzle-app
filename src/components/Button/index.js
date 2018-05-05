@@ -62,6 +62,8 @@ export const Button = styled.button`
 
 export const ButtonLink = styled(Link)`
   ${baseButtonCss}
+  text-decoration: none;
+  display: inline-block;
 `
 
 export const ButtonOutline = styled.button`

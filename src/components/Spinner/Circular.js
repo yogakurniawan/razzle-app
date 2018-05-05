@@ -1,11 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import { circular } from "../../utils/animations"
-import { getSize, getColor } from "./utils"
+import { themeProp } from 'utils/theme'
+import { circular } from "utils/animations"
+import { getSize } from "./utils"
 
 const Circular = ({ color, size }) => {
   const Spinner = styled.div`
     position: relative;
+    margin: 0 auto;
     width: ${getSize(size)};
     height: ${getSize(size)};
   `
@@ -22,7 +24,7 @@ const Circular = ({ color, size }) => {
       margin: 0 auto;
       width: 15%;
       height: 15%;
-      background-color: ${getColor(color)};
+      background-color: ${themeProp(color)};
       border-radius: 100%;
       animation: ${circular} 1.2s infinite ease-in-out both;
     }

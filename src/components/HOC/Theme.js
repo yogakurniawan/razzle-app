@@ -1,5 +1,6 @@
 const theme = {
   main: 'mediumseagreen',
+  white: '#fff',
   primary: '#007bff',
   secondary: '#6c757d',
   success: '#28a745',
@@ -10,13 +11,11 @@ const theme = {
   dark: '#343a40',
   fontSizeBase: '1rem',
   inputColor: '#495057',
-  inputBg: '#fff',
   inputBorderRadius: '.25rem',
   inputBorderColor: '#ced4da',
   inputPlaceholderColor: '#6c757d',
   inputDisabledBg: '#e9ecef',
   inputFocusColor: '#495057',
-  inputFocusBg: '#fff',
   flexboxgrid: {
     // Defaults
     gridSize: 12, // rem

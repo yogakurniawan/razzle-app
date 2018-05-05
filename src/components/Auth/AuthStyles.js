@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Grid, Row, Col } from 'react-styled-flexboxgrid'
-import { ButtonOutline, ButtonLinkOutline } from 'components/Button'
+import { Button, ButtonLink } from 'components/Button'
 
 export const StyledGrid = styled(Grid)`
   padding-right: 0;
@@ -14,11 +14,11 @@ export const SubContainer = styled(Col) `
   border-radius: .25rem;
 `
 
-export const StyledButton = styled(ButtonOutline) `
+export const StyledButton = styled(Button) `
   width: 6rem;
 `
 
-export const StyledButtonLink = styled(ButtonLinkOutline) `
+export const StyledButtonLink = styled(ButtonLink) `
   width: 6rem;
 `
 

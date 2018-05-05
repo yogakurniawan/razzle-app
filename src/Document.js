@@ -132,7 +132,7 @@ class Document extends Component {
           <head>
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta charSet="utf-8" />
-            <title>Welcome to the Afterparty</title>
+            <title>Stethoscope App</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="stylesheet" href="/static/fontawesome/css/fa-solid.min.css" />
             {helmet.title.toComponent()}

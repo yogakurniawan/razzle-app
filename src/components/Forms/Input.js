@@ -9,7 +9,7 @@ export const Input = styled(Field) `
   font-size: ${themeProp('fontSizeBase')};
   line-height: 1.5;
   color: ${themeProp('inputColor')};
-  background-color: ${themeProp('inputBg')};
+  background-color: ${themeProp('white')};
   background-image: none;
   background-clip: padding-box;
   border: 1px solid ${themeProp('inputBorderColor')};
@@ -46,7 +46,7 @@ export const Input = styled(Field) `
 
   &:focus {
     outline: 0;
-    background-color: ${themeProp('inputFocusBg')};
+    background-color: ${themeProp('white')};
     color: ${themeProp('inputFocusColor')};
   }
 `
