@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
+import { Field } from 'formik'
 import { themeProp } from 'utils/theme'
 
-export const Input = styled.input`
+export const Input = styled(Field) `
   display: block;
   width: 100%;
   padding: .375rem .75rem;
@@ -20,23 +21,45 @@ export const Input = styled.input`
     opacity: 1;
   }
   
-  ${props =>
-    props.disabled &&
+  ${props => props.disabled &&
     css`
       background-color: ${themeProp('inputDisabledBg')};
       opacity: 1;
   `}
+
+  ${props => props.state === 'invalid' &&
+    css`
+      border-color: ${themeProp('danger')};
+      &:focus {
+        border-color: ${themeProp('danger')};
+        box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
+      }
+  `}
   
+  ${props => props.state === 'valid' &&
+    css`
+      &:focus {
+        border-color: ${themeProp('primary')};
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      }
+  `}
+
   &:focus {
-    color: ${themeProp('inputFocusColor')};
-    background-color: ${themeProp('inputFocusBg')};
-    border-color: ${themeProp('primary')};
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    background-color: ${themeProp('inputFocusBg')};
+    color: ${themeProp('inputFocusColor')};
   }
 `
 
-export const InputGroup = styled.div `
+export const InvalidFeedback = styled.div `
+  text-align: left;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: ${themeProp('danger')};
+`
+
+export const InputGroup = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -52,7 +75,7 @@ export const InputGroup = styled.div `
   }
 `
 
-export const InputGroupText = styled.div `
+export const InputGroupText = styled.div`
   display: flex;
   align-items: center;
   padding: .375rem .75rem;
@@ -68,7 +91,7 @@ export const InputGroupText = styled.div `
   border-radius: ${themeProp('inputBorderRadius')};
 `
 
-export const InputGroupPrepend = styled.div `
+export const InputGroupPrepend = styled.div`
   margin-right: -1px;
   display: flex;
   &> ${InputGroupText} {

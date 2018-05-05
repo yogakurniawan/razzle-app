@@ -7,19 +7,20 @@ import * as authActions from 'actions/auth'
 class Signin extends Component {
   state = {}
 
-  onSubmit = (event) => {
-    debugger;
-    event.preventDefault()
+  onSubmit = (values) => {
     const { signin } = this.props
-    signin('yogaygk@gmail.com', 'test1234')
+    const { email, password } = values
+    signin(email, password)
   }
 
   render() {
     const AuthFormComponent = () => (
-      <AuthForm authType="signin" onSubmit={this.onSubmit} /> 
+      <AuthForm authType="signin" onSubmit={this.onSubmit} />
     )
     return (
-      <Auth form={AuthFormComponent} />
+      <React.Fragment>
+        <Auth form={AuthFormComponent} />
+      </React.Fragment>
     )
   }
 }
