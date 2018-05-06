@@ -6,16 +6,21 @@ import * as authActions from 'actions/auth'
 
 class Signin extends Component {
 
-  onSubmit = (values) => {
-    const { signin } = this.props
+  onSubmit = async (values) => {
+    const { signin, error } = this.props
     const { email, password } = values
-    signin(email, password)
+    await signin(email, password)
+    if (error) {
+      return Promise.reject(error)
+    } else {
+      return Promise.resolve()
+    }
   }
 
   render() {
-    const { isSigningIn } = this.props
+    // const { isSigningIn } = this.props
     const AuthFormComponent = () => (
-      <AuthForm isSubmitting={isSigningIn} authType="signin" onSubmit={this.onSubmit} />
+      <AuthForm authType="signin" onSubmit={this.onSubmit} />
     )
     return (
       <React.Fragment>
@@ -30,7 +35,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  isSigningIn: state.auth.loading
+  error: state.auth.error
 })
 
 export default connect(
