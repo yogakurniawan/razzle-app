@@ -10,6 +10,8 @@ const baseButtonCss = css`
       border-color: ${theme[color]};
     `
   }
+  font-family: inherit;
+  border: 1px solid transparent;
   user-select: none;
   padding: .375rem .75rem;
   font-size: 1rem;

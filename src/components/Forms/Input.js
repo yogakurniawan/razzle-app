@@ -6,6 +6,7 @@ export const Input = styled(Field) `
   display: block;
   width: 100%;
   padding: .375rem .75rem;
+  font-family: inherit;
   font-size: ${themeProp('fontSizeBase')};
   line-height: 1.5;
   color: ${themeProp('inputColor')};
