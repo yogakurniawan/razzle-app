@@ -12,14 +12,20 @@ const store = initStore()
 
 class Root extends Component {
   static getInitialProps(props) {
-    console.log(props.req.headers)
+    const cookies = props.req.headers.cookie;
+    const userDataCookie = cookies.split(";").find(c => c.trim().startsWith("userData="))
+    const userData = JSON.parse(decodeURIComponent(userDataCookie.split('=')[1]))
+    return {
+      userData
+    }
   }
 
   render() {
+    const { userData } = this.props
     return (
       <Provider store={store}>
         <div>
-          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute userCookie={userData} exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/signup" component={Signup} />
         </div>

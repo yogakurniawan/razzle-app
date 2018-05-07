@@ -1,7 +1,6 @@
 import React from 'react'
 import { asyncComponent } from '@jaredpalmer/after'
 import { Route, Redirect } from 'react-router-dom'
-import Cookie from 'js-cookie'
 import { loadItem } from 'utils/localStorage'
 import Root from 'containers/Root'
 
@@ -26,15 +25,16 @@ const routes = [
   }
 ]
 
-export const PrivateRoute = ({ component: Component, ...rest }) => (
+export const PrivateRoute = ({ component: Component, userCookie, ...rest }) => (
   <Route {...rest} render={(props) => {
     let userData
     if (process.env.BUILD_TARGET === 'client') {
       userData = loadItem('userData')
     } else {
-      userData = Cookie.get('userData')
+      userData = userCookie
     }
-    console.log(rest)
+    console.log(userCookie)
+    console.log(userCookie)
     return (userData ? <Component {...props} /> : <Redirect to='/signin' />)
   }} />
 )
