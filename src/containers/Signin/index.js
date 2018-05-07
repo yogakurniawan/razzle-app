@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Cookie from 'js-cookie'
 import Auth from 'components/Auth'
+import { saveItem } from 'utils/localStorage'
 import AuthForm from 'components/Auth/AuthForm'
 import * as authActions from 'actions/auth'
 
@@ -9,16 +11,17 @@ class Signin extends Component {
   onSubmit = async (values) => {
     const { signin, error } = this.props
     const { email, password } = values
-    await signin(email, password)
+    const userData = await signin(email, password)
     if (error) {
       return Promise.reject(error)
     } else {
+      Cookie.set('userData', userData)
+      saveItem('userData', userData)
       return Promise.resolve()
     }
   }
 
   render() {
-    // const { isSigningIn } = this.props
     const AuthFormComponent = () => (
       <AuthForm authType="signin" onSubmit={this.onSubmit} />
     )
