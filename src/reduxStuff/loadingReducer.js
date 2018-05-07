@@ -6,7 +6,6 @@ const loadingReducer = (state = {}, action) => {
   if (!matches) return state  
   
   const [, requestName, requestState] = matches
-  console.log(action)
   return {
     ...state,
     // Store whether a request is happening at the moment or not

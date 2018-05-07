@@ -33,8 +33,6 @@ export const PrivateRoute = ({ component: Component, userCookie, ...rest }) => (
     } else {
       userData = userCookie
     }
-    console.log(userCookie)
-    console.log(userCookie)
     return (userData ? <Component {...props} /> : <Redirect to='/signin' />)
   }} />
 )
