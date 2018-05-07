@@ -1,31 +1,14 @@
-import types from 'constants/actionTypes'
+import { SIGNIN } from 'constants/actionTypes'
 
 function auth(state = {
-  userSignedIn: false,
-  userData: null,
-  error: null,
-  loading: false
+  userData: null
 }, action) {
-  const { payload, type, error } = action
+  const { payload, type } = action
   switch (type) {
-    case types.SIGNIN:
+    case SIGNIN.SUCCESS:
       return {
         ...state,
-        loading: true
-      }
-    case types.SIGNIN_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        userData: payload,
-        error: null
-      }
-    case types.SIGNIN_FAILED:
-      return {
-        ...state,
-        loading: false,
-        userData: null,
-        error
+        userData: payload
       }
     default:
       return state

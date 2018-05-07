@@ -18,6 +18,12 @@ export function createReducer(initialState, handlers) {
   }
 }
 
+export const createActionTypes = (type) => ({
+	SUCCESS: `${type}_SUCCESS`,
+	FAILURE: `${type}_FAILURE`,
+	REQUEST: `${type}_REQUEST`
+})
+
 export function createConstants(...constants) {
   return constants.reduce((acc, constant) => {
     return {
