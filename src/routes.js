@@ -29,7 +29,7 @@ export const PrivateRoute = ({ component: Component, isSignedIn, ...rest }) => (
   <Route {...rest} render={(props) => {
     let authorized
     if (isSignedIn === undefined) {
-      authorized = !!loadItem('userData')
+      authorized = process.env.BUILD_TARGET === 'client' && !!loadItem('userData')
     } else {
       authorized = isSignedIn
     }
