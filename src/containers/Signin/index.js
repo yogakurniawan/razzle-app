@@ -23,7 +23,7 @@ class Signin extends Component {
 
   render() {
     const AuthFormComponent = () => (
-      <AuthForm authType="signin" onSubmit={this.onSubmit} />
+      <AuthForm history={this.props.history} authType="signin" onSubmit={this.onSubmit} />
     )
     return (
       <React.Fragment>

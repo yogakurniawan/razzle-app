@@ -25,15 +25,21 @@ const routes = [
   }
 ]
 
-export const PrivateRoute = ({ component: Component, userCookie, ...rest }) => (
+export const PrivateRoute = ({ component: Component, isSignedIn, ...rest }) => (
   <Route {...rest} render={(props) => {
-    let userData
-    if (process.env.BUILD_TARGET === 'client') {
-      userData = loadItem('userData')
+    let authorized
+    if (isSignedIn === undefined) {
+      authorized = !!loadItem('userData')
     } else {
-      userData = userCookie
+      authorized = isSignedIn
     }
-    return (userData ? <Component {...props} /> : <Redirect to='/signin' />)
+    return (authorized ? <Component {...props} /> : <Redirect to='/signin' />)
+  }} />
+)
+
+export const AuthRoute = ({ component: Component, isSignedIn, ...rest }) => (
+  <Route {...rest} render={(props) => {
+    return (isSignedIn ? <Redirect to='/' /> : <Component {...props} />)
   }} />
 )
 

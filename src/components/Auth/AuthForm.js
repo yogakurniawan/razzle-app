@@ -25,7 +25,7 @@ import {
 export default class AuthForm extends Component {
 
   render() {
-    const { authType, onSubmit } = this.props
+    const { authType, onSubmit, history } = this.props
     const title = authType === 'signin' ? 'Sign In' : 'Sign Up'
     const authButtonText = authType === 'signin' ? 'Sign Up' : 'Sign In'
     const authDirection = authType === 'signin' ? 'signup' : 'signin'
@@ -56,6 +56,9 @@ export default class AuthForm extends Component {
                   try {
                     await onSubmit(values)
                     actions.setSubmitting(false)
+                    if (authType === 'signin') {
+                      history.push('/')
+                    }
                   } catch (error) {
                     actions.setSubmitting(false)
                   }

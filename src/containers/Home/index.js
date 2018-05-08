@@ -9,8 +9,9 @@ import * as authActions from 'actions/auth'
 class Home extends Component {
 
   handleClick = () => {
-    const { createPatient } = this.props
+    const { createPatient, history } = this.props
     createPatient('yoga kurniawan', 'asgard')
+    history.push('/')
   }
 
   handleSignout = () => {

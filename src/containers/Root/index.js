@@ -5,6 +5,7 @@ import Home from 'containers/Home'
 import Signin from 'containers/Signin'
 import Signup from 'containers/Signup'
 import Page from 'components/HOC/Page'
+import { loadItem } from 'utils/localStorage'
 import initStore from 'reduxStuff/initStore'
 import { PrivateRoute } from '../../routes'
 
@@ -12,20 +13,25 @@ const store = initStore()
 
 class Root extends Component {
   static getInitialProps(props) {
-    const cookies = props.req.headers.cookie;
-    const userDataCookie = cookies.split(";").find(c => c.trim().startsWith("userData="))
-    const userData = JSON.parse(decodeURIComponent(userDataCookie.split('=')[1]))
+    let userData
+    if (process.env.BUILD_TARGET === 'client') {
+      userData = loadItem('userData')
+    } else {
+      const cookies = props.req.headers.cookie;
+      const userCookie = cookies.split(";").find(c => c.trim().startsWith("userData="))
+      userData = JSON.parse(decodeURIComponent(userCookie.split('=')[1]))
+    }
     return {
-      userData
+      isSignedIn: !!userData
     }
   }
 
   render() {
-    const { userData } = this.props
+    const { isSignedIn } = this.props
     return (
       <Provider store={store}>
         <div>
-          <PrivateRoute userCookie={userData} exact path="/" component={Home} />
+          <PrivateRoute isSignedIn={isSignedIn} exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/signup" component={Signup} />
         </div>
