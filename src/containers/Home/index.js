@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Button } from 'components/Button'
+import Navbar from 'components/Navbar'
 import { auth } from 'config/firebase'
 import * as patientActions from 'actions/patient'
 import * as authActions from 'actions/auth'
@@ -21,6 +22,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <ul>
           <li><Link to="/sandwiches">Sandwiches</Link></li>
           <li><Link to="/tacos">Tacos</Link></li>
