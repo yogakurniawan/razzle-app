@@ -17,11 +17,13 @@ export const Navbar = styled.nav`
   ${baseNavbar}
   @media screen and (min-width: 1088px) {
     min-height: 3.25rem;
+    padding: 1rem 2rem;
   }
 `
 
 export const NavbarMenu = styled.div`
   ${baseNavbar}
+  display: none;
   @media screen and (min-width: 1088px) {
     flex-grow: 1;
     flex-shrink: 0;
@@ -30,6 +32,11 @@ export const NavbarMenu = styled.div`
     background-color: #fff;
     box-shadow: 0 8px 16px rgba(10,10,10,.1);
     padding: .5rem 0;
+    ${({ state }) => state === 'active' &&
+      css`
+        display: block;
+      `
+    }
   }
 `
 
@@ -87,6 +94,12 @@ export const NavbarBurger = styled.div`
       span:nth-child(1) {
         transform: translateY(5px) rotate(45deg);
       }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-5px) rotate(-45deg);
+      }
     `
   }
 `
@@ -95,6 +108,7 @@ export const NavbarItem = styled.a`
   color: #0a0a0a;
   cursor: pointer;
   text-decoration: none;
+  display: block;
   flex-grow: 0;
   flex-shrink: 0;
   line-height: 1.5;
@@ -105,6 +119,7 @@ export const NavbarItem = styled.a`
     align-items: center;
   }
   &:hover {
-    background-color: #f2f2f2;
+    background-color: #fafafa;
+    color: #3273dc;
   }
 `

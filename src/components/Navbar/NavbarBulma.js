@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react';
 import {
   Navbar,
   NavbarMenu,
@@ -8,23 +8,36 @@ import {
   NavbarBurger
 } from './BulmaStyles'
 
-export default function NavbarBulma() {
-  return (
-    <Navbar>
-      <NavbarBrand>
-        <NavbarBurger state="inactive">
-          <span></span>
-          <span></span>
-          <span></span>
-        </NavbarBurger>
-      </NavbarBrand>
-      <NavbarMenu>
-        <NavbarStart>
-          <NavbarItem href="">
-            Home
-          </NavbarItem>
-        </NavbarStart>
-      </NavbarMenu>
-    </Navbar>
-  )
+export default class NavbarBulma extends Component {
+  state = {
+    active: false
+  }
+
+  toggleState = () => {
+    this.setState({
+      active: !this.state.active
+    })
+  }
+
+  render() {
+    const { active } = this.state
+    return (
+      <Navbar>
+        <NavbarBrand>
+          <NavbarBurger onClick={this.toggleState} state={active ? 'active' : 'inactive'}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu state={active ? 'active' : 'inactive'}>
+          <NavbarStart>
+            <NavbarItem href="">
+              Home
+            </NavbarItem>
+          </NavbarStart>
+        </NavbarMenu>
+      </Navbar>
+    )
+  }
 }
