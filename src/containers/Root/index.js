@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { Route } from 'react-router-dom'
 import Home from 'containers/Home'
 import Signin from 'containers/Signin'
 import Signup from 'containers/Signup'
 import Page from 'components/HOC/Page'
 import { loadItem } from 'utils/localStorage'
 import initStore from 'reduxStuff/initStore'
-import { PrivateRoute } from '../../routes'
+import { PrivateRoute, AuthRoute } from '../../routes'
 
 const store = initStore()
 
@@ -32,8 +31,8 @@ class Root extends Component {
       <Provider store={store}>
         <div>
           <PrivateRoute isSignedIn={isSignedIn} exact path="/" component={Home} />
-          <Route exact path="/signin" component={Signin} />
-          <Route exact path="/signup" component={Signup} />
+          <AuthRoute isSignedIn={isSignedIn} exact path="/signin" component={Signin} />
+          <AuthRoute isSignedIn={isSignedIn} exact path="/signup" component={Signup} />
         </div>
       </Provider>
     );

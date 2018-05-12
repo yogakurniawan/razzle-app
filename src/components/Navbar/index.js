@@ -1,85 +1,81 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
 import {
-  ContainerFluid,
-  NavbarBrand,
-  NavbarFixed,
-  NavbarHeader,
+  Navbar,
   NavbarMenu,
-  NavbarItem,
-  NavbarNavigation,
-  ButtonMenu,
-  Item,
-  ArrowDownWrapper
-} from './NavbarStyles'
+  NavbarItemLink,
+  NavbarItemDiv,
+  NavbarStart,
+  NavbarBrand,
+  NavbarBurger,
+  NavbarLink,
+  NavbarDropDown
+} from './Styles'
 
-class Navbar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { toggleMenu: false }
-
-    this.handleToggleMenu = this.handleToggleMenu.bind(this)
+export default class NavbarBulma extends Component {
+  state = {
+    active: false,
+    show: false
   }
 
-  handleToggleMenu() {
+  toggleState = () => {
     this.setState({
-      toggleMenu: !this.state.toggleMenu
+      active: !this.state.active
     })
   }
 
-  handleClickMenu(menu) {
-    const { onClickMenu } = this.props
-    onClickMenu(menu)
+  toggleDropdown = () => {
+    this.setState({
+      show: !this.state.show
+    })
   }
 
   render() {
-    const { menu } = this.props
+    const { active, show } = this.state
     return (
-      <ContainerFluid>
-        <NavbarFixed>
-          <NavbarMenu expand={this.state.toggleMenu}>
-            <NavbarNavigation>
-              <NavbarHeader>
-                <NavbarBrand>
-                  <ArrowDownWrapper onClick={this.handleToggleMenu}>
-                    <span />
-                  </ArrowDownWrapper>
-                </NavbarBrand>
-              </NavbarHeader>
-              <NavbarItem>
-                <ButtonMenu>
-                  <Item active={menu === 'home'}><Link to="/">Home</Link></Item>
-                </ButtonMenu>
-              </NavbarItem>
-              <NavbarItem>
-                <ButtonMenu>
-                  <Item active={menu === 'top_liked'}><Link to="/">Top Liked</Link></Item>
-                </ButtonMenu>
-              </NavbarItem>
-              <NavbarItem>
-                <ButtonMenu>
-                  <Item active={menu === 'top_viewed'}><Link to="/">Top Viewed</Link></Item>
-                </ButtonMenu>
-              </NavbarItem>
-              <NavbarItem>
-                <ButtonMenu>
-                  <Item active={menu === 'top_downloaded'}><Link to="/">Top Downloaded</Link></Item>
-                </ButtonMenu>
-              </NavbarItem>
-            </NavbarNavigation>
-          </NavbarMenu>
-        </NavbarFixed>
-      </ContainerFluid>
+      <Navbar>
+        <NavbarBrand>
+          <NavbarBurger onClick={this.toggleState} state={active ? 'active' : 'inactive'}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </NavbarBurger>
+        </NavbarBrand>
+        <NavbarMenu state={active ? 'active' : 'inactive'}>
+          <NavbarStart>
+            <NavbarItemLink href="">
+              Home
+            </NavbarItemLink>
+            <NavbarItemLink href="">
+              Appointments
+            </NavbarItemLink>
+            <NavbarItemLink href="">
+              Waiting Room
+            </NavbarItemLink>
+            <NavbarItemLink href="">
+              Patients
+            </NavbarItemLink>
+            <NavbarItemLink href="">
+              Accounts
+            </NavbarItemLink>
+            <NavbarItemDiv state="has-dropdown" onMouseOver={this.toggleDropdown} onMouseOut={this.toggleDropdown} href="">
+              <NavbarLink>
+                More
+              </NavbarLink>
+              <NavbarDropDown state={show ? 'show' : 'hide'}>
+                <NavbarItemLink>
+                  Overview
+                </NavbarItemLink>
+                <NavbarItemLink>
+                  Elements
+                </NavbarItemLink>
+                <NavbarItemLink>
+                  Components
+                </NavbarItemLink>
+              </NavbarDropDown>
+            </NavbarItemDiv>
+          </NavbarStart>
+        </NavbarMenu>
+      </Navbar>
     )
   }
 }
-
-const mapStateToProps = state => ({
-})
-
-const mapDispatchToProps = {
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
-

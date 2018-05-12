@@ -3,23 +3,34 @@ import { Field } from 'formik'
 import { themeProp } from 'utils/theme'
 
 export const Input = styled(Field) `
-  display: block;
-  width: 100%;
-  padding: .375rem .75rem;
-  font-family: inherit;
-  font-size: ${themeProp('fontSizeBase')};
-  line-height: 1.5;
-  color: ${themeProp('inputColor')};
-  background-color: ${themeProp('white')};
-  background-image: none;
-  background-clip: padding-box;
-  border: 1px solid ${themeProp('inputBorderColor')};
-  border-radius: ${themeProp('inputBorderRadius')};
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  transition: borderColor .15s ease-in-out,boxShadow .15s ease-in-out;
-  &::placeholder {
-    color: ${themeProp('inputPlaceholderColor')};
-    opacity: 1;
+  ${({ theme, state }) =>
+    css`
+      display: block;
+      width: 100%;
+      padding: .375rem .75rem;
+      font-family: inherit;
+      font-size: ${theme['fontSizeBase']};
+      line-height: 1.5;
+      color: ${theme['inputColor']};
+      background-color: ${theme['white']};
+      background-image: none;
+      background-clip: padding-box;
+      border: 1px solid ${state === 'invalid' ? theme['danger'] : theme['inputBorderColor']};
+      border-radius: ${theme['inputBorderRadius']};
+      box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+      transition: borderColor .15s ease-in-out,boxShadow .15s ease-in-out;
+      &::placeholder {
+        color: ${theme['inputPlaceholderColor']};
+        opacity: 1;
+      }
+      &:focus {
+        outline: 0;
+        background-color: ${theme['white']};
+        color: ${theme['inputFocusColor']};
+        border-color: ${state === 'valid' ? theme['primary'] : theme['danger']};
+        box-shadow: ${state === 'valid' ? '0 0 0 0.2rem rgba(0,123,255,.25)' : '0 0 0 0.2rem rgba(220,53,69,.25)'};
+      }
+    `
   }
   
   ${props => props.disabled &&
@@ -27,32 +38,9 @@ export const Input = styled(Field) `
       background-color: ${themeProp('inputDisabledBg')};
       opacity: 1;
   `}
-
-  ${props => props.state === 'invalid' &&
-    css`
-      border-color: ${themeProp('danger')};
-      &:focus {
-        border-color: ${themeProp('danger')};
-        box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
-      }
-  `}
-  
-  ${props => props.state === 'valid' &&
-    css`
-      &:focus {
-        border-color: ${themeProp('primary')};
-        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-      }
-  `}
-
-  &:focus {
-    outline: 0;
-    background-color: ${themeProp('white')};
-    color: ${themeProp('inputFocusColor')};
-  }
 `
 
-export const InvalidFeedback = styled.div `
+export const InvalidFeedback = styled.div`
   text-align: left;
   width: 100%;
   margin-top: .25rem;
