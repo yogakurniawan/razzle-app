@@ -123,6 +123,7 @@ class Document extends Component {
 
   render() {
     const { helmet, assets, data, styleTags } = this.props
+    console.log(assets)
     // get attributes from React Helmet
     const htmlAttrs = helmet.htmlAttributes.toComponent()
     const bodyAttrs = helmet.bodyAttributes.toComponent()
@@ -146,6 +147,18 @@ class Document extends Component {
             <script
               type="text/javascript"
               src={assets.client.js}
+              defer
+              crossOrigin="anonymous"
+            />
+            <script
+              type="text/javascript"
+              src={assets.vendor.js}
+              defer
+              crossOrigin="anonymous"
+            />
+            <script
+              type="text/javascript"
+              src={assets['runtime~client'].js}
               defer
               crossOrigin="anonymous"
             />

@@ -9,6 +9,7 @@ import {
   InputGroupText,
   InputGroupPrepend
 } from 'components/Forms/Input'
+import Modal from 'components/Modal'
 import { User, Lock } from 'components/Icon'
 import Circular from 'components/Spinner/Circular'
 import {
@@ -23,15 +24,29 @@ import {
 } from './AuthStyles'
 
 export default class AuthForm extends Component {
+  state = {
+    showNotification: false,
+    errorMessage: null
+  }
+
+  toggleShowNotification = () => {
+    this.setState({ showNotification: !this.state.showNotification });
+  }
 
   render() {
     const { authType, onSubmit, history } = this.props
+    const { errorMessage, showNotification } = this.state
     const title = authType === 'signin' ? 'Sign In' : 'Sign Up'
     const authButtonText = authType === 'signin' ? 'Sign Up' : 'Sign In'
     const authDirection = authType === 'signin' ? 'signup' : 'signin'
     const question = authType === 'signin' ? 'Don\'t have an Account?' : 'Already have an Account?'
     return (
       <Container>
+        <Modal
+          title="ERROR"
+          message={errorMessage}
+          isOpen={showNotification}
+          onRequestClose={this.toggleShowNotification} />
         <SubContainer lg={5} md={8} sm={8} xs={10}>
           <TopContainer center="xs">
             <Col lg={8} md={6} sm={8} xs={10}>
@@ -60,6 +75,10 @@ export default class AuthForm extends Component {
                       history.push('/')
                     }
                   } catch (error) {
+                    this.setState({
+                      errorMessage: error.message
+                    })
+                    this.toggleShowNotification()
                     actions.setSubmitting(false)
                   }
                 }}

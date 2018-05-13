@@ -4,6 +4,18 @@ import { createPatient } from 'actions/patient'
 
 class Home extends Component {
 
+  state = {
+    modalIsOpen: false
+  }
+
+  openModal = () => {
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal = () => {
+    this.setState({modalIsOpen: false});
+  }
+
   handleClick = () => {
     const { addPatient, history } = this.props
     addPatient('yoga kurniawan', 'asgard')
@@ -13,7 +25,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        hello world
+        test
       </div>
     )
   }
