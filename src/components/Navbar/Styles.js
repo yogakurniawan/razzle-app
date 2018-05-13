@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const baseNavbar = css`
   @media screen and (min-width: 1088px) {
@@ -10,9 +11,10 @@ const baseNavbar = css`
 const baseLink = css`
   cursor: pointer;
   text-decoration: none;
-  color: inherit;
+  color: #777;
   line-height: 1.5;
 `
+
 const baseNavbarItem = css`
   ${({ theme, state }) =>
     css`
@@ -82,6 +84,14 @@ export const NavbarStart = styled.div`
   }
 `
 
+export const NavbarEnd = styled.div`
+  ${baseNavbar}
+  @media screen and (min-width: 1088px) {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+`
+
 export const NavbarBrand = styled.div`
   align-items: stretch;
   display: flex;
@@ -138,15 +148,48 @@ export const NavbarBurger = styled.div`
   }
 `
 
-export const NavbarItemLink = styled.a`
+export const NavbarDropDown = styled.div`
+  ${({ theme, position }) =>
+    css`
+      ${NavbarItemLink} {
+        font-size: .875rem;
+      }
+      padding-bottom: .5rem;
+      padding-top: .5rem;
+      @media screen and (min-width: 1088px) {
+        background-color: ${theme.white};
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top: 2px solid #dbdbdb;
+        box-shadow: 0 8px 8px rgba(10,10,10,.1);
+        display: none;
+        left: 0;
+        min-width: 100%;
+        position: absolute;
+        top: 100%;
+        z-index: 20;
+        ${position === 'right' && css`
+          left: auto;
+          right: 0;
+        `}
+      }
+  `}
+`
+
+export const NavbarItemLink = styled(Link)`
   ${baseNavbarItem}
 `
 
 export const NavbarItemDiv = styled.div`
   ${baseNavbarItem}
+  &:hover {
+    ${NavbarDropDown} {
+      display: block;
+    }
+  }
 `
 
-export const NavbarLink = styled.a`
+export const NavbarLink = styled(Link)`
   ${({ theme, state }) =>
     css`
       ${baseLink}
@@ -174,31 +217,6 @@ export const NavbarLink = styled.a`
         transform: rotate(-45deg);
         transform-origin: center;
         width: .625em;
-      }
-  `}
-`
-
-export const NavbarDropDown = styled.div`
-  ${({ theme, state }) =>
-    css`
-      ${NavbarItemLink} {
-        font-size: .875rem;
-        color: initial;
-      }
-      padding-bottom: .5rem;
-      padding-top: .5rem;
-      @media screen and (min-width: 1088px) {
-        background-color: ${theme.white};
-        border-bottom-left-radius: 6px;
-        border-bottom-right-radius: 6px;
-        border-top: 2px solid #dbdbdb;
-        box-shadow: 0 8px 8px rgba(10,10,10,.1);
-        display: ${state === 'show' ? 'block' : 'none'};
-        left: 0;
-        min-width: 100%;
-        position: absolute;
-        top: 100%;
-        z-index: 20;
       }
   `}
 `

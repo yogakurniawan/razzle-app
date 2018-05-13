@@ -18,6 +18,13 @@ export const User = styled.span `
   }
 `
 
+export const User2 = styled.span `
+  &:before {
+    ${Icon}
+    content: '\f007';
+  }
+`
+
 export const Lock = styled.span `
   &:before {
     ${Icon}

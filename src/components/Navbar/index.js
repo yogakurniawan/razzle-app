@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { User2 } from 'components/Icon'
 import {
   Navbar,
   NavbarMenu,
@@ -8,13 +9,13 @@ import {
   NavbarBrand,
   NavbarBurger,
   NavbarLink,
-  NavbarDropDown
+  NavbarDropDown,
+  NavbarEnd
 } from './Styles'
 
 export default class NavbarBulma extends Component {
   state = {
-    active: false,
-    show: false
+    active: false
   }
 
   toggleState = () => {
@@ -23,14 +24,9 @@ export default class NavbarBulma extends Component {
     })
   }
 
-  toggleDropdown = () => {
-    this.setState({
-      show: !this.state.show
-    })
-  }
-
   render() {
     const { active, show } = this.state
+    const { logout } = this.props
     return (
       <Navbar>
         <NavbarBrand>
@@ -42,38 +38,56 @@ export default class NavbarBulma extends Component {
         </NavbarBrand>
         <NavbarMenu state={active ? 'active' : 'inactive'}>
           <NavbarStart>
-            <NavbarItemLink href="">
+            <NavbarItemLink to="/">
               Home
             </NavbarItemLink>
-            <NavbarItemLink href="">
+            <NavbarItemLink to="/">
               Appointments
             </NavbarItemLink>
-            <NavbarItemLink href="">
+            <NavbarItemLink to="/">
               Waiting Room
             </NavbarItemLink>
-            <NavbarItemLink href="">
+            <NavbarItemLink to="/">
               Patients
             </NavbarItemLink>
-            <NavbarItemLink href="">
+            <NavbarItemLink to="/">
               Accounts
             </NavbarItemLink>
-            <NavbarItemDiv state="has-dropdown" onMouseOver={this.toggleDropdown} onMouseOut={this.toggleDropdown} href="">
-              <NavbarLink>
+            <NavbarItemDiv state="has-dropdown" to="/">
+              <NavbarLink to="/">
                 More
               </NavbarLink>
-              <NavbarDropDown state={show ? 'show' : 'hide'}>
-                <NavbarItemLink>
-                  Overview
+              <NavbarDropDown>
+                <NavbarItemLink to="/">
+                  Resources
                 </NavbarItemLink>
-                <NavbarItemLink>
-                  Elements
+                <NavbarItemLink to="/">
+                  Settings
                 </NavbarItemLink>
-                <NavbarItemLink>
-                  Components
+                <NavbarItemLink to="/">
+                  Reporting
+                </NavbarItemLink>
+                <NavbarItemLink to="/">
+                  Audit
+                </NavbarItemLink>
+                <NavbarItemLink to="/">
+                  Utilities
                 </NavbarItemLink>
               </NavbarDropDown>
             </NavbarItemDiv>
           </NavbarStart>
+          <NavbarEnd>
+            <NavbarItemDiv state="has-dropdown" to="/">
+              <NavbarLink to="/">
+                <User2 />
+              </NavbarLink>
+              <NavbarDropDown position="right">
+                <NavbarItemLink to="/" onClick={logout}>
+                  Logout
+                </NavbarItemLink>
+              </NavbarDropDown>
+            </NavbarItemDiv>
+          </NavbarEnd>
         </NavbarMenu>
       </Navbar>
     )
