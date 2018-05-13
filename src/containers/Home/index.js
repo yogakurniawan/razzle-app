@@ -1,36 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Navbar from 'components/Navbar'
-import { auth } from 'config/firebase'
-import * as patientActions from 'actions/patient'
-import * as authActions from 'actions/auth'
+import { createPatient } from 'actions/patient'
 
 class Home extends Component {
 
   handleClick = () => {
-    const { createPatient, history } = this.props
-    createPatient('yoga kurniawan', 'asgard')
+    const { addPatient, history } = this.props
+    addPatient('yoga kurniawan', 'asgard')
     history.push('/')
-  }
-
-  handleSignout = () => {
-    auth.doSignOut()
   }
 
   render() {
     return (
       <div>
-        <Navbar />
+        hello world
       </div>
     )
   }
 }
 
 const mapDispatchToProps = {
-  // makeASandwichWithSecretSauce: actions.makeASandwichWithSecretSauce,
-  // makeASandwich: actions.makeASandwich,
-  createPatient: patientActions.createPatient,
-  signin: authActions.signin
+  addPatient: createPatient
 }
 
 const mapStateToProps = (state) => ({

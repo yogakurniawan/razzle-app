@@ -25,7 +25,7 @@ export default class NavbarBulma extends Component {
   }
 
   render() {
-    const { active, show } = this.state
+    const { active } = this.state
     const { logout } = this.props
     return (
       <Navbar>

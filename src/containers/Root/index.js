@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
+import Cookie from 'js-cookie'
+import { signOut } from 'actions/auth'
 import Home from 'containers/Home'
 import Signin from 'containers/Signin'
 import Signup from 'containers/Signup'
+import Navbar from 'components/Navbar'
 import Page from 'components/HOC/Page'
-import { loadItem } from 'utils/localStorage'
+import { loadItem, removeItem } from 'utils/localStorage'
 import initStore from 'reduxStuff/initStore'
 import { PrivateRoute, AuthRoute } from '../../routes'
 
@@ -25,11 +28,18 @@ class Root extends Component {
     }
   }
 
+  logout(store) {
+    removeItem('userData')
+    Cookie.remove('userData')
+    store.dispatch(signOut())
+  }
+
   render() {
     const { isSignedIn } = this.props
     return (
       <Provider store={store}>
         <div>
+          { isSignedIn && <Navbar logout={() => this.logout(store)} /> }
           <PrivateRoute isSignedIn={isSignedIn} exact path="/" component={Home} />
           <AuthRoute isSignedIn={isSignedIn} exact path="/signin" component={Signin} />
           <AuthRoute isSignedIn={isSignedIn} exact path="/signup" component={Signup} />

@@ -1,5 +1,9 @@
 import { auth } from 'config/firebase'
-import { SIGNIN } from 'constants/actionTypes'
+import constants, { SIGNIN } from 'constants/actionTypes'
+import { makeActionCreator } from 'utils/common'
+
+const { SIGN_OUT } = constants
+export const signOut = makeActionCreator(SIGN_OUT)
 
 export function signin(username, password) {
   return {

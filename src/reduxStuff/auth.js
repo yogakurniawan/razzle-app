@@ -1,4 +1,4 @@
-import { SIGNIN } from 'constants/actionTypes'
+import constants, { SIGNIN } from 'constants/actionTypes'
 
 function auth(state = {
   userData: null
@@ -9,6 +9,11 @@ function auth(state = {
       return {
         ...state,
         userData: payload
+      }
+    case constants.SIGN_OUT:
+      return {
+        ...state,
+        userData: null
       }
     default:
       return state

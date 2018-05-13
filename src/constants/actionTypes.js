@@ -6,4 +6,5 @@ export const SIGNUP = createActionTypes('SIGNUP')
 
 export default createConstants(
   'SET_USER_LOGGED_IN',
+  'SIGN_OUT'
 )

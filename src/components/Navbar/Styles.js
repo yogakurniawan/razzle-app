@@ -153,6 +153,8 @@ export const NavbarDropDown = styled.div`
     css`
       ${NavbarItemLink} {
         font-size: .875rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
       }
       padding-bottom: .5rem;
       padding-top: .5rem;
@@ -186,6 +188,7 @@ export const NavbarItemDiv = styled.div`
     ${NavbarDropDown} {
       display: block;
     }
+    background-color: initial;
   }
 `
 
@@ -197,6 +200,10 @@ export const NavbarLink = styled(Link)`
       padding: .5rem .75rem;
       position: relative;
       padding-right: 2.5em;
+      &:hover {
+        background-color: #f7f7f7;
+        color: ${theme.primary};
+      }
       @media screen and (min-width: 1088px) {
         align-items: center;
         display: flex;
