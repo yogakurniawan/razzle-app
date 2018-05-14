@@ -22,14 +22,25 @@ const customStyles = {
   }
 }
 
-if (typeof(window) !== 'undefined') {
+if (typeof (window) !== 'undefined') {
   Modal.setAppElement('#root')
 }
 
-export default class ModalComponent extends Component {
-
+export default class Alert extends Component {
   afterOpenModal = () => {
     ReactDOM.findDOMNode(this.refs['ok']).focus()
+  }
+
+  onCancel = () => {
+    const { onCancel, onRequestClose } = this.props
+    onCancel && onCancel()
+    onRequestClose()
+  }
+
+  onConfirm = () => {
+    const { onConfirm, onRequestClose } = this.props
+    onConfirm && onConfirm()
+    onRequestClose()
   }
 
   render() {
@@ -37,7 +48,9 @@ export default class ModalComponent extends Component {
       isOpen,
       onRequestClose,
       title,
-      message
+      children,
+      cancelButtonText,
+      confirmButtonText
     } = this.props
     return (
       <Modal
@@ -51,11 +64,17 @@ export default class ModalComponent extends Component {
           <Title>{title}</Title>
         </Header>
         <Body>
-          <p>{message}</p>
+          {children}
         </Body>
         <Footer>
-          <Button ref="ok" onClick={onRequestClose} color="primary">
-            OK
+          {
+            cancelButtonText &&
+            <Button ref="cancel" onClick={this.onCancel} color="primary">
+              {cancelButtonText}
+            </Button>
+          }
+          <Button ref="ok" onClick={this.onConfirm} color="primary">
+            {confirmButtonText}
           </Button>
         </Footer>
       </Modal>

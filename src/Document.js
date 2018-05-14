@@ -21,23 +21,9 @@ injectGlobal`
     background-color: #fff;
   }
 
-  @keyframes bounceIn{
-    0%{
-      opacity: 0;
-      transform: scale(0.3) translate3d(0,0,0);
-    }
-    50%{
-      opacity: 0.9;
-      transform: scale(1.1);
-    }
-    80%{
-      opacity: 1;
-      transform: scale(0.89);
-    }
-    100%{
-      opacity: 1;
-      transform: scale(1) translate3d(0,0,0);
-    }
+  p {
+    margin: 0 0 10px;
+    padding: 0;
   }
 
   @keyframes zoomEnter {
@@ -63,7 +49,7 @@ injectGlobal`
     background: rgba(0, 0, 0, 0.15);  
     &--after-open {
       animation-name: zoomEnter;
-      animation-duration: 250ms;
+      animation-duration: 200ms;
       animation-timing-function: cubic-bezier(0.4, 0, 0, 1.5);
       animation-fill-mode: both;
       opacity: 1;
@@ -177,7 +163,6 @@ class Document extends Component {
 
   render() {
     const { helmet, assets, data, styleTags } = this.props
-    console.log(assets)
     // get attributes from React Helmet
     const htmlAttrs = helmet.htmlAttributes.toComponent()
     const bodyAttrs = helmet.bodyAttributes.toComponent()

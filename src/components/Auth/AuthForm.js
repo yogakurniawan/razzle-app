@@ -9,7 +9,7 @@ import {
   InputGroupText,
   InputGroupPrepend
 } from 'components/Forms/Input'
-import Modal from 'components/Modal'
+import Alert from 'components/Alert'
 import { User, Lock } from 'components/Icon'
 import Circular from 'components/Spinner/Circular'
 import {
@@ -42,11 +42,13 @@ export default class AuthForm extends Component {
     const question = authType === 'signin' ? 'Don\'t have an Account?' : 'Already have an Account?'
     return (
       <Container>
-        <Modal
+        <Alert
           title="ERROR"
-          message={errorMessage}
+          confirmButtonText="OK"
           isOpen={showNotification}
-          onRequestClose={this.toggleShowNotification} />
+          onRequestClose={this.toggleShowNotification}>
+          {errorMessage && errorMessage.split('.').map(msg => <p key={msg}>{msg}</p>)}
+        </Alert>
         <SubContainer lg={5} md={8} sm={8} xs={10}>
           <TopContainer center="xs">
             <Col lg={8} md={6} sm={8} xs={10}>

@@ -19,6 +19,7 @@ export const Body = styled.div`
   position: relative;
   flex: 1 1 auto;
   padding: 1rem;
+  text-align: center;
 `
 
 export const Footer = styled.div`
@@ -27,5 +28,8 @@ export const Footer = styled.div`
   justify-content: center;
   padding: 1rem;
   border-top: 1px solid #e9ecef;
+  > button {
+    margin: 0 0.5rem;
+  }
 `
 
