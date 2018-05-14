@@ -85,7 +85,6 @@ export default class AuthForm extends Component {
                 render={({
                   errors,
                   touched,
-                  handleChange,
                   isSubmitting
                 }) => {
                   return (
@@ -97,7 +96,7 @@ export default class AuthForm extends Component {
                               <User />
                             </InputGroupText>
                           </InputGroupPrepend>
-                          <Input state={errors.email ? 'invalid' : 'valid'} name="email" type="text" id="email" placeholder="Email" />
+                          <Input state={touched.email && errors.email ? 'invalid' : 'valid'} name="email" type="text" id="email" placeholder="Email" />
                           {touched.email && errors.email && <InvalidFeedback>{errors.email}</InvalidFeedback>}
                         </InputGroup>
                       </Div>
@@ -108,7 +107,7 @@ export default class AuthForm extends Component {
                               <Lock />
                             </InputGroupText>
                           </InputGroupPrepend>
-                          <Input state={errors.password ? 'invalid' : 'valid'} name="password" type="password" id="password" placeholder="Password" />
+                          <Input state={touched.password && errors.password ? 'invalid' : 'valid'} name="password" type="password" id="password" placeholder="Password" />
                           {touched.password && errors.password && <InvalidFeedback>{errors.password}</InvalidFeedback>}
                         </InputGroup>
                       </Div>
