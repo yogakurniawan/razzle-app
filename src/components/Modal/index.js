@@ -22,7 +22,9 @@ const customStyles = {
   }
 }
 
-Modal.setAppElement('#root')
+if (typeof(window) !== 'undefined') {
+  Modal.setAppElement('#root')
+}
 
 export default class ModalComponent extends Component {
 
@@ -43,7 +45,8 @@ export default class ModalComponent extends Component {
         onAfterOpen={this.afterOpenModal}
         onRequestClose={onRequestClose}
         style={customStyles}
-        contentLabel="Example Modal">
+        closeTimeoutMS={450}
+        contentLabel="Modal">
         <Header>
           <Title>{title}</Title>
         </Header>

@@ -21,6 +21,60 @@ injectGlobal`
     background-color: #fff;
   }
 
+  @keyframes bounceIn{
+    0%{
+      opacity: 0;
+      transform: scale(0.3) translate3d(0,0,0);
+    }
+    50%{
+      opacity: 0.9;
+      transform: scale(1.1);
+    }
+    80%{
+      opacity: 1;
+      transform: scale(0.89);
+    }
+    100%{
+      opacity: 1;
+      transform: scale(1) translate3d(0,0,0);
+    }
+  }
+
+  @keyframes zoomEnter {
+    from {
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+  }
+
+  @keyframes zoomLeave {
+    to {
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+  }
+
+  .ReactModalPortal > div {
+    opacity: 0;
+  }
+
+  .ReactModalPortal .ReactModal__Overlay {
+    transition: opacity 200ms ease-in-out;
+    background: rgba(0, 0, 0, 0.15);  
+    &--after-open {
+      animation-name: zoomEnter;
+      animation-duration: 250ms;
+      animation-timing-function: cubic-bezier(0.4, 0, 0, 1.5);
+      animation-fill-mode: both;
+      opacity: 1;
+    }
+    &--before-close {
+      animation-name: zoomLeave;
+      animation-fill-mode: both;
+      opacity: 0;
+    }
+  }
+
   @font-face {
     font-family: Airglyphs;
     src: url("https://a0.muscache.com/airbnb/static/airbnb-o2/fonts/airglyphs-bb873ab4254c83409cf1fa6f4759fa3e.woff") format("woff"),url("https://a0.muscache.com/airbnb/static/airbnb-o2/fonts/airglyphs-d90404cb884b74a27264dda25857850d.ttf") format("truetype");
