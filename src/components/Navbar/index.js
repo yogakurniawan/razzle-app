@@ -11,7 +11,7 @@ import {
   NavbarLink,
   NavbarDropDown,
   NavbarEnd
-} from './Styles'
+} from './Styled'
 
 export default class NavbarBulma extends Component {
   state = {

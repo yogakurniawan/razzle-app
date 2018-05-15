@@ -1,7 +1,8 @@
-import constants, { SIGNIN } from 'constants/actionTypes'
+import constants, { SIGNIN, SIGNUP } from 'constants/actionTypes'
 
 function auth(state = {
-  userData: null
+  userData: null,
+  signUpResponse: null
 }, action) {
   const { payload, type } = action
   switch (type) {
@@ -9,6 +10,11 @@ function auth(state = {
       return {
         ...state,
         userData: payload
+      }
+    case SIGNUP.SUCCESS:
+      return {
+        ...state,
+        signUpResponse: payload
       }
     case constants.SIGN_OUT:
       return {

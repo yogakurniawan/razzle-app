@@ -7,7 +7,7 @@ import {
   Title,
   Body,
   Footer
-} from './Styles'
+} from './Styled'
 
 const customStyles = {
   content: {

@@ -1,20 +1,20 @@
 import { auth } from 'config/firebase'
-import constants, { SIGNIN } from 'constants/actionTypes'
+import constants, { SIGNIN, SIGNUP } from 'constants/actionTypes'
 import { makeActionCreator } from 'utils/common'
 
 const { SIGN_OUT } = constants
 export const signOut = makeActionCreator(SIGN_OUT)
 
-export function signin(username, password) {
+export function signin(email, password) {
   return {
     type: SIGNIN,
-    promise: auth.doSignInWithEmailAndPassword(username, password).then(response => response)
+    promise: auth.doSignInWithEmailAndPassword(email, password).then(response => response)
   }
 }
 
-// export function signup(forPerson, secretSauce) {
-//   return {
-//     type: types.SIGNUP,
-//     promise: fetchSecretSauce().then(response => response)
-//   }
-// }
+export function signup(email, password) {
+  return {
+    type: SIGNUP,
+    promise: auth.doCreateUserWithEmailAndPassword(email, password).then(response => response)
+  }
+}

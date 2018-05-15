@@ -15,13 +15,6 @@ const routes = [
       loader: () => import('./components/Sandwiches'), // required
       placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
     })
-  },
-  {
-    path: '/tacos',
-    component: asyncComponent({
-      loader: () => import('./containers/Tacos'), // required
-      placeholder: () => <div>...LOADING...</div> // this is optional, just returns null by default
-    })
   }
 ]
 

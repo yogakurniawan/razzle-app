@@ -1,22 +1,42 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Auth from 'components/Auth'
 import AuthForm from 'components/Auth/AuthForm'
+import * as authActions from 'actions/auth'
 
 class Signup extends Component {
   state = {}
 
-  onSubmit = (event) => {
-    event.preventDefault()    
+  onSubmit = async (values) => {
+    const { signup, error } = this.props
+    const { email, password } = values
+    await signup(email, password)
+    if (error) {
+      return Promise.reject(error)
+    } else {
+      return Promise.resolve()
+    }
   }
 
   render() {
     const AuthFormComponent = () => (
-      <AuthForm authType="signup" onSubmit={this.onSubmit} /> 
+      <AuthForm history={this.props.history} authType="signup" onSubmit={this.onSubmit} /> 
     )
     return (
       <Auth form={AuthFormComponent} />
     )
   }
 }
- 
-export default Signup
+
+const mapDispatchToProps = {
+  signup: authActions.signup
+}
+
+const mapStateToProps = (state) => ({
+  error: state.auth.error
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Signup)

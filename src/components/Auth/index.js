@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Page from 'components/HOC/Page'
 import LogoBar from './LogoBar'
-import { StyledGrid } from './AuthStyles'
+import { StyledGrid } from './Styled'
 import Footer from './Footer'
 
 function Auth({ form }) {

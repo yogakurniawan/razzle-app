@@ -21,21 +21,38 @@ import {
   StyledButtonLink,
   BottomContainer,
   Question
-} from './AuthStyles'
+} from './Styled'
 
 export default class AuthForm extends Component {
   state = {
-    showNotification: false,
-    errorMessage: null
+    alertTitle: null,
+    showAlert: false,
+    alertMessage: null
   }
 
-  toggleShowNotification = () => {
-    this.setState({ showNotification: !this.state.showNotification });
+  setAlertInfo = (alertTitle, alertMessage) => {
+    this.setState({
+      alertTitle,
+      alertMessage
+    });
+  }
+
+  toggleShowAlert = () => {
+    this.setState({
+      showAlert: !this.state.showAlert
+    });
+  }
+
+  onConfirm = () => {
+    const { authType, history } = this.props
+    if (authType === 'signup') {
+      history.push('/signin')
+    }
   }
 
   render() {
     const { authType, onSubmit, history } = this.props
-    const { errorMessage, showNotification } = this.state
+    const { alertMessage, showAlert, alertTitle } = this.state
     const title = authType === 'signin' ? 'Sign In' : 'Sign Up'
     const authButtonText = authType === 'signin' ? 'Sign Up' : 'Sign In'
     const authDirection = authType === 'signin' ? 'signup' : 'signin'
@@ -43,11 +60,12 @@ export default class AuthForm extends Component {
     return (
       <Container>
         <Alert
-          title="ERROR"
+          title={alertTitle}
           confirmButtonText="OK"
-          isOpen={showNotification}
-          onRequestClose={this.toggleShowNotification}>
-          {errorMessage && errorMessage.split('.').map(msg => <p key={msg}>{msg}</p>)}
+          isOpen={showAlert}
+          onConfirm={this.onConfirm}
+          onRequestClose={this.toggleShowAlert}>
+          {alertMessage && alertMessage.split('.').map(msg => <p key={msg}>{msg}</p>)}
         </Alert>
         <SubContainer lg={5} md={8} sm={8} xs={10}>
           <TopContainer center="xs">
@@ -75,12 +93,13 @@ export default class AuthForm extends Component {
                     actions.setSubmitting(false)
                     if (authType === 'signin') {
                       history.push('/')
+                    } else {
+                      this.setAlertInfo('INFO', 'New user has been successfully registered. Signin Now!')
+                      this.toggleShowAlert()
                     }
                   } catch (error) {
-                    this.setState({
-                      errorMessage: error.message
-                    })
-                    this.toggleShowNotification()
+                    this.setAlertInfo('ERROR', error.message)
+                    this.toggleShowAlert()
                     actions.setSubmitting(false)
                   }
                 }}
