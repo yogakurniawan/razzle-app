@@ -27,7 +27,8 @@ export default class AuthForm extends Component {
   state = {
     alertTitle: null,
     showAlert: false,
-    alertMessage: null
+    alertMessage: null,
+    error: null
   }
 
   setAlertInfo = (alertTitle, alertMessage) => {
@@ -37,15 +38,17 @@ export default class AuthForm extends Component {
     });
   }
 
-  toggleShowAlert = () => {
+  toggleShowAlert = (error) => {
     this.setState({
-      showAlert: !this.state.showAlert
+      showAlert: !this.state.showAlert,
+      error: error || null
     });
   }
 
   onConfirm = () => {
     const { authType, history } = this.props
-    if (authType === 'signup') {
+    const { error } = this.state
+    if (!error && authType === 'signup') {
       history.push('/signin')
     }
   }
@@ -99,7 +102,7 @@ export default class AuthForm extends Component {
                     }
                   } catch (error) {
                     this.setAlertInfo('ERROR', error.message)
-                    this.toggleShowAlert()
+                    this.toggleShowAlert(error)
                     actions.setSubmitting(false)
                   }
                 }}
