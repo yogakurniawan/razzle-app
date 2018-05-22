@@ -1,6 +1,10 @@
-// ./src/Home.js
-import React from 'react';
+import React, { Component } from 'react'
+import { Table, Th, Td, Th1 } from './Styled'
 
-const Bus = () => <h3>Bus</h3>
-
-export default Bus;
+export default class Table extends Component {
+    render() {
+        <Table>
+            
+        </Table>
+    }
+}
