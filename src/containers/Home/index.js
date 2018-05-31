@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createPatient } from 'actions/patient'
+import Table from 'components/Table'
+import Spinner from 'components/Spinner'
 
 class Home extends Component {
 
@@ -9,11 +11,11 @@ class Home extends Component {
   }
 
   openModal = () => {
-    this.setState({modalIsOpen: true});
+    this.setState({ modalIsOpen: true });
   }
 
   closeModal = () => {
-    this.setState({modalIsOpen: false});
+    this.setState({ modalIsOpen: false });
   }
 
   handleClick = () => {
@@ -24,8 +26,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        test
+      <div style={{ background: 'black' }}>
+        <Table />
+        <Spinner height={20} width={20} />
       </div>
     )
   }

@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
-import { Table, Th, Td, Th1 } from './Styled'
+import { Table, Th, Th1 } from './Styled'
 
-export default class Table extends Component {
+export default class TableComponent extends Component {
     render() {
-        <Table>
-            
-        </Table>
+        return (
+            <Table>
+                <thead>
+                    <tr>
+                        <Th1>No.</Th1>
+                        <Th>Invoice Subject</Th>
+                        <Th>Client</Th>
+                        <Th>VAT No.</Th>
+                        <Th>Created</Th>
+                        <Th>Status</Th>
+                        <Th>Price</Th>
+                        <Th></Th>
+                        <Th></Th>
+                    </tr>
+                </thead>
+            </Table>
+        )
     }
 }

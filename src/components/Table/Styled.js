@@ -20,7 +20,7 @@ export const Th = styled.th `
     color: #9aa0ac;
     text-transform: uppercase;
     font-size: 0.875rem;
-    font-weight: 400;
+    font-weight: 200;
     padding: 0.5rem 0.75rem;
     text-align: inherit;
 `

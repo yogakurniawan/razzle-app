@@ -11,7 +11,7 @@ import {
 } from 'components/Forms/Input'
 import Alert from 'components/Alert'
 import { User, Lock } from 'components/Icon'
-import Circular from 'components/Spinner/Circular'
+import Spinner from 'components/Spinner'
 import {
   Container,
   SubContainer,
@@ -137,7 +137,7 @@ export default class AuthForm extends Component {
                       </Div>
                       <Div align="right">
                         <StyledButton type="submit" color="primary">
-                          {isSubmitting && <Circular size="1.5rem" color="white" />}
+                          {isSubmitting && <Spinner height={20} width={20} />}
                           {!isSubmitting && title}
                         </StyledButton>
                       </Div>
