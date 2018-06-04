@@ -1,15 +1,34 @@
-import React, { Component } from 'react'
-import { Table, Th, Th1 } from './Styled'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Th } from './Styled'
 
-class Header extends Component {
-  render() {
-    return (
-      <Table>
-        {React.cloneElement(this.props.colGroups, { ref: node => this.headerGrp = node })}
-        <thead ref={node => this.header = node}>
-          {trs}
-        </thead>
-      </Table>
-    )
-  }
+const Header = (props) => {
+  const {
+    columns
+  } = props
+
+  return (
+    <thead>
+      <tr>
+        {
+          columns.map(column => {
+            if (!column.hidden) {
+              return (
+                <Th>
+                  {column.text}
+                </Th>
+              )
+            }
+            return false
+          })
+        }
+      </tr>
+    </thead>
+  )
 }
+
+Header.propTypes = {
+  columns: PropTypes.array.isRequired
+}
+
+export default Header

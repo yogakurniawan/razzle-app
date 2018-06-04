@@ -1,8 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Grid, Row, Col } from 'react-styled-flexboxgrid'
 import { createPatient } from 'actions/patient'
 import Table from 'components/Table'
-import Spinner from 'components/Spinner'
+
+const productsGenerator = (quantity = 5) => {
+  return (
+    Array.from({ length: quantity }, (value, index) => ({
+      id: index,
+      name: `Item name ${index}`,
+      price: 2100 + index
+    }))
+  )
+}
 
 class Home extends Component {
 
@@ -11,11 +21,11 @@ class Home extends Component {
   }
 
   openModal = () => {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true })
   }
 
   closeModal = () => {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false })
   }
 
   handleClick = () => {
@@ -25,11 +35,24 @@ class Home extends Component {
   }
 
   render() {
+    const columns = [{
+      dataField: 'id',
+      text: 'Product ID'
+    }, {
+      dataField: 'name',
+      text: 'Product Name'
+    }, {
+      dataField: 'price',
+      text: 'Product Price'
+    }]
     return (
-      <div style={{ background: 'black' }}>
-        <Table />
-        <Spinner height={20} width={20} />
-      </div>
+      <Grid style={{ marginTop: 20 }}>
+        <Row center="xs">
+          <Col lg={10} md={8} sm={10} xs={12}>
+            <Table keyField='id' columns={columns} data={productsGenerator()} />
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }
