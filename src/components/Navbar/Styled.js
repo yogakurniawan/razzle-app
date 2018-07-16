@@ -43,6 +43,42 @@ const baseNavbarItem = css`
   `}
 `
 
+export const NavbarLabel = styled.span`
+  ${({ theme, state }) =>
+    css`
+      ${baseLink}
+      display: block;
+      padding: .5rem .75rem;
+      position: relative;
+      padding-right: 2.5em;
+      &:hover {
+        background-color: #f7f7f7;
+        color: ${theme.primary};
+      }
+      @media screen and (min-width: 1088px) {
+        align-items: center;
+        display: flex;
+      }
+      &::after {
+        margin-top: -.375em;
+        right: 1.125em;
+        border: 3px solid ${theme.primary};
+        border-radius: 2px;
+        border-right: 0;
+        border-top: 0;
+        content: " ";
+        display: block;
+        height: .625em;
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        transform: rotate(-45deg);
+        transform-origin: center;
+        width: .625em;
+      }
+  `}
+`
+
 export const Navbar = styled.nav`
   background-color: #fff;
   color: #0a0a0a;
@@ -166,7 +202,7 @@ export const NavbarDropDown = styled.div`
         box-shadow: 0 8px 8px rgba(10,10,10,.1);
         display: none;
         left: 0;
-        min-width: 100%;
+        min-width: 10rem;
         position: absolute;
         top: 100%;
         z-index: 20;
@@ -176,6 +212,10 @@ export const NavbarDropDown = styled.div`
         `}
       }
   `}
+`
+
+export const NavbarItem = styled.div`
+  ${baseNavbarItem}
 `
 
 export const NavbarItemLink = styled(Link)`
@@ -190,40 +230,4 @@ export const NavbarItemDiv = styled.div`
     }
     background-color: initial;
   }
-`
-
-export const NavbarLink = styled(Link)`
-  ${({ theme, state }) =>
-    css`
-      ${baseLink}
-      display: block;
-      padding: .5rem .75rem;
-      position: relative;
-      padding-right: 2.5em;
-      &:hover {
-        background-color: #f7f7f7;
-        color: ${theme.primary};
-      }
-      @media screen and (min-width: 1088px) {
-        align-items: center;
-        display: flex;
-      }
-      &::after {
-        margin-top: -.375em;
-        right: 1.125em;
-        border: 3px solid ${theme.primary};
-        border-radius: 2px;
-        border-right: 0;
-        border-top: 0;
-        content: " ";
-        display: block;
-        height: .625em;
-        pointer-events: none;
-        position: absolute;
-        top: 50%;
-        transform: rotate(-45deg);
-        transform-origin: center;
-        width: .625em;
-      }
-  `}
 `

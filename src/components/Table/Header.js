@@ -14,7 +14,7 @@ const Header = (props) => {
           columns.map(column => {
             if (!column.hidden) {
               return (
-                <Th>
+                <Th key={column.text}>
                   {column.text}
                 </Th>
               )

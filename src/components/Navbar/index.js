@@ -3,12 +3,13 @@ import { User2 } from 'components/Icon'
 import {
   Navbar,
   NavbarMenu,
+  NavbarItem,
   NavbarItemLink,
   NavbarItemDiv,
   NavbarStart,
   NavbarBrand,
   NavbarBurger,
-  NavbarLink,
+  NavbarLabel,
   NavbarDropDown,
   NavbarEnd
 } from './Styled'
@@ -30,7 +31,7 @@ export default class NavbarBulma extends Component {
     return (
       <Navbar>
         <NavbarBrand>
-          <NavbarBurger onClick={this.toggleState} state={active ? 'active' : 'inactive'}>
+          <NavbarBurger data-testid="navbar-burger" onClick={this.toggleState} state={active ? 'active' : 'inactive'}>
             <span></span>
             <span></span>
             <span></span>
@@ -41,50 +42,75 @@ export default class NavbarBulma extends Component {
             <NavbarItemLink to="/">
               Home
             </NavbarItemLink>
-            <NavbarItemLink to="/">
+            <NavbarItemLink to="/appointments">
               Appointments
             </NavbarItemLink>
-            <NavbarItemLink to="/">
+            <NavbarItemLink to="/waitingroom">
               Waiting Room
             </NavbarItemLink>
-            <NavbarItemLink to="/">
+            <NavbarItemLink to="/patients">
               Patients
             </NavbarItemLink>
-            <NavbarItemLink to="/">
-              Accounts
-            </NavbarItemLink>
-            <NavbarItemDiv state="has-dropdown" to="/">
-              <NavbarLink to="/">
-                More
-              </NavbarLink>
+            <NavbarItemDiv state="has-dropdown">
+              <NavbarLabel>
+                Accounts
+              </NavbarLabel>
               <NavbarDropDown>
-                <NavbarItemLink to="/">
+                <NavbarItemLink to="/sales">
+                  Sales
+                </NavbarItemLink>
+                <NavbarItemLink to="/expenses">
+                  Expenses
+                </NavbarItemLink>
+                <NavbarItemLink to="/distributions">
+                  Distributions
+                </NavbarItemLink>
+                <NavbarItemLink to="/journal">
+                  Journal
+                </NavbarItemLink>
+                <NavbarItemLink to="/reconciliation">
+                  Reconciliation
+                </NavbarItemLink>
+                <NavbarItemLink to="/acir">
+                  AIR - Claiming
+                </NavbarItemLink>
+                <NavbarItemLink to="/claiming">
+                  Claiming
+                </NavbarItemLink>
+              </NavbarDropDown>
+            </NavbarItemDiv>
+            <NavbarItemDiv state="has-dropdown">
+              <NavbarLabel>
+                More
+              </NavbarLabel>
+              <NavbarDropDown>
+                <NavbarItemLink to="/resources">
                   Resources
                 </NavbarItemLink>
-                <NavbarItemLink to="/">
+                <NavbarItemLink to="/settings">
                   Settings
                 </NavbarItemLink>
-                <NavbarItemLink to="/">
+                <NavbarItemLink to="/reporting">
                   Reporting
                 </NavbarItemLink>
-                <NavbarItemLink to="/">
+                <NavbarItemLink to="/audit">
                   Audit
                 </NavbarItemLink>
-                <NavbarItemLink to="/">
+                <NavbarItemLink to="/utilities">
                   Utilities
                 </NavbarItemLink>
               </NavbarDropDown>
             </NavbarItemDiv>
           </NavbarStart>
           <NavbarEnd>
-            <NavbarItemDiv state="has-dropdown" to="/">
-              <NavbarLink to="/">
+            <NavbarItemDiv state="has-dropdown">
+              <NavbarLabel>
                 <User2 />
-              </NavbarLink>
+              </NavbarLabel>
               <NavbarDropDown position="right">
-                <NavbarItemLink to="/" onClick={logout}>
+                <NavbarItem onClick={logout}>
                   Logout
-                </NavbarItemLink>
+                </NavbarItem>
               </NavbarDropDown>
             </NavbarItemDiv>
           </NavbarEnd>

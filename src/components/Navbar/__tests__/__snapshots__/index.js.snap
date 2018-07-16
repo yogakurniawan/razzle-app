@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar burger has state inactive 1`] = `
+<div>
+  <nav
+    class="Styled__Navbar-fbosc2-1 gwKhqW"
+  >
+    <div
+      class="Styled__NavbarBrand-fbosc2-5 jyrqfl"
+    >
+      <div
+        class="Styled__NavbarBurger-fbosc2-6 jrYnFG"
+        data-testid="navbar-burger"
+      >
+        <span />
+        <span />
+        <span />
+      </div>
+    </div>
+    <div
+      class="Styled__NavbarMenu-fbosc2-2 gYCmeq"
+    >
+      <div
+        class="Styled__NavbarStart-fbosc2-3 llRien"
+      >
+        <a
+          class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+          href="/"
+        >
+          Home
+        </a>
+        <a
+          class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+          href="/appointments"
+        >
+          Appointments
+        </a>
+        <a
+          class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+          href="/waitingroom"
+        >
+          Waiting Room
+        </a>
+        <a
+          class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+          href="/patients"
+        >
+          Patients
+        </a>
+        <div
+          class="Styled__NavbarItemDiv-fbosc2-10 dvyfkx"
+        >
+          <span
+            class="Styled__NavbarLabel-fbosc2-0 qZZfM"
+          >
+            Accounts
+          </span>
+          <div
+            class="Styled__NavbarDropDown-fbosc2-7 dMqvKL"
+          >
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/sales"
+            >
+              Sales
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/expenses"
+            >
+              Expenses
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/distributions"
+            >
+              Distributions
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/journal"
+            >
+              Journal
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/reconciliation"
+            >
+              Reconciliation
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/acir"
+            >
+              AIR - Claiming
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/claiming"
+            >
+              Claiming
+            </a>
+          </div>
+        </div>
+        <div
+          class="Styled__NavbarItemDiv-fbosc2-10 dvyfkx"
+        >
+          <span
+            class="Styled__NavbarLabel-fbosc2-0 qZZfM"
+          >
+            More
+          </span>
+          <div
+            class="Styled__NavbarDropDown-fbosc2-7 dMqvKL"
+          >
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/resources"
+            >
+              Resources
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/settings"
+            >
+              Settings
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/reporting"
+            >
+              Reporting
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/audit"
+            >
+              Audit
+            </a>
+            <a
+              class="Styled__NavbarItemLink-fbosc2-9 lnJXgk"
+              href="/utilities"
+            >
+              Utilities
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="Styled__NavbarEnd-fbosc2-4 inqMzr"
+      >
+        <div
+          class="Styled__NavbarItemDiv-fbosc2-10 dvyfkx"
+        >
+          <span
+            class="Styled__NavbarLabel-fbosc2-0 qZZfM"
+          >
+            <span
+              class="Icon__User2-s196jlqe-1 ebmrAE"
+            />
+          </span>
+          <div
+            class="Styled__NavbarDropDown-fbosc2-7 dJiMnP"
+          >
+            <div
+              class="Styled__NavbarItem-fbosc2-8 kEPPMF"
+            >
+              Logout
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;

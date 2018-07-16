@@ -24,14 +24,16 @@ class Root extends Component {
       userData = JSON.parse(decodeURIComponent(userCookie.split('=')[1]))
     }
     return {
-      isSignedIn: !!userData
+      isSignedIn: Boolean(userData)
     }
   }
 
-  logout(store) {
+  logout = (store) => {
+    const { history } = this.props
     removeItem('userData')
     Cookie.remove('userData')
     store.dispatch(signOut())
+    history.push('/signin')
   }
 
   render() {

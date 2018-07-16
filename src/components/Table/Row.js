@@ -18,6 +18,8 @@ class Row extends Component {
             if (!column.hidden) {
               const { dataField } = column;
               const content = get(row, dataField);
+              console.log(row)
+              console.log(content)
 
               return (
                 <Cell
