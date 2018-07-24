@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Table = styled.table`
   width: 100%;
@@ -7,7 +7,7 @@ export const Table = styled.table`
   background-color: transparent;
   white-space: nowrap !important;
   margin-bottom: 0;
-`;
+`
 
 export const Card = styled.div`
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -15,6 +15,13 @@ export const Card = styled.div`
   width: 100%;
   border: 1px solid rgba(0, 40, 100, 0.12);
   border-radius: 3px;
+`
+
+export const Col = styled.col`
+  ${({ width }) => width && css`
+      width: ${width}
+    `
+  }
 `
 
 export const Th = styled.th`
@@ -32,7 +39,7 @@ export const Th = styled.th`
   text-align: inherit;
 `
 
-export const Th1 = styled(Th) `
+export const Th1 = styled(Th)`
   width: 0.25rem !important;
 `
 

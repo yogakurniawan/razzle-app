@@ -31,6 +31,6 @@ const Spinner = props => (
       </g>
     </svg>
   </Wrapper>
-);
+)
 
 export default Spinner

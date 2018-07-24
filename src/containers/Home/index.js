@@ -3,19 +3,9 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-styled-flexboxgrid'
 import { createPatient } from 'actions/patient'
 import Table from 'components/Table'
-
-const productsGenerator = (quantity = 5) => {
-  return (
-    Array.from({ length: quantity }, (value, index) => ({
-      id: index,
-      name: `Item name ${index}`,
-      price: 2100 + index
-    }))
-  )
-}
+import PatientsData from 'data/patients.json'
 
 class Home extends Component {
-
   state = {
     modalIsOpen: false
   }
@@ -34,22 +24,58 @@ class Home extends Component {
     history.push('/')
   }
 
+  getColumns() {
+    const columns = [
+      {
+        dataField: 'patientGUID',
+        text: 'Name'
+      },
+      {
+        dataField: 'name',
+        text: 'Address'
+      },
+      {
+        dataField: 'price',
+        text: 'Gender'
+      },
+      {
+        dataField: 'price',
+        text: 'DOB'
+      },
+      {
+        dataField: 'price',
+        text: 'Age'
+      },
+      {
+        dataField: 'price',
+        text: 'Home'
+      },
+      {
+        dataField: 'price',
+        text: 'Work'
+      },
+      {
+        dataField: 'price',
+        text: 'Mobile'
+      },
+      {
+        dataField: 'price',
+        text: 'Medicare'
+      },
+      {
+        dataField: 'confidentiality',
+        text: 'Conf.'
+      }
+    ]
+    return columns
+  }
+
   render() {
-    const columns = [{
-      dataField: 'id',
-      text: 'Product ID'
-    }, {
-      dataField: 'name',
-      text: 'Product Name'
-    }, {
-      dataField: 'price',
-      text: 'Product Price'
-    }]
     return (
       <Grid style={{ marginTop: 20 }}>
         <Row center="xs">
           <Col lg={10} md={8} sm={10} xs={12}>
-            <Table keyField='id' columns={columns} data={productsGenerator()} />
+            <Table keyField='patientGUID' columns={this.getColumns()} data={[]} />
           </Col>
         </Row>
       </Grid>

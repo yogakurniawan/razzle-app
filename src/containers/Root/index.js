@@ -23,6 +23,7 @@ class Root extends Component {
       const userCookie = cookies.split(";").find(c => c.trim().startsWith("userData="))
       userData = JSON.parse(decodeURIComponent(userCookie.split('=')[1]))
     }
+    console.log('hello')
     return {
       isSignedIn: Boolean(userData)
     }
