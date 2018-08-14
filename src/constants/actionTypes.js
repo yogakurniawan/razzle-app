@@ -1,4 +1,4 @@
-import { createActionTypes, createConstants } from 'utils/common'
+import { createActionTypes, createConstants } from 'utils/redux'
 
 export const SIGNIN = createActionTypes('SIGNIN')
 export const ADD_PATIENT = createActionTypes('ADD_PATIENT')

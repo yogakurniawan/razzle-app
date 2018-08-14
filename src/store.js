@@ -1,14 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import customMiddleware from 'utils/redux/middleware'
 import { loadItem } from 'utils/localStorage'
-import reducers from './reducers'
-import customMiddleware from './middleware'
+import reducers from 'reducers'
 
 let userData
 if (process.env.BUILD_TARGET === 'client') {
   userData = loadItem('userData')
 }
+
 const initStore = (initialState = {
   auth: {
     userData: userData || null

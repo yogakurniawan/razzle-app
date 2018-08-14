@@ -174,6 +174,7 @@ class Document extends Component {
             <title>Stethoscope App</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="stylesheet" href="/static/fontawesome/css/fa-solid.min.css" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.8.1/antd.css" />
             {helmet.title.toComponent()}
             {helmet.meta.toComponent()}
             {helmet.link.toComponent()}

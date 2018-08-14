@@ -8,7 +8,7 @@ import Signup from 'containers/Signup'
 import Navbar from 'components/Navbar'
 import Page from 'components/HOC/Page'
 import { loadItem, removeItem } from 'utils/localStorage'
-import initStore from 'reduxStuff/initStore'
+import initStore from '../../store'
 import { PrivateRoute, AuthRoute } from '../../routes'
 
 const store = initStore()

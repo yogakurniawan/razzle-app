@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-styled-flexboxgrid'
+import Button from 'antd/lib/button'
 import { createPatient } from 'actions/patient'
 import Table from 'components/Table'
 import PatientsData from 'data/patients.json'
@@ -76,6 +77,7 @@ class Home extends Component {
         <Row center="xs">
           <Col lg={10} md={8} sm={10} xs={12}>
             <Table keyField='patientGUID' columns={this.getColumns()} data={[]} />
+            <Button type="primary">Primary</Button>
           </Col>
         </Row>
       </Grid>

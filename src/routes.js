@@ -2,7 +2,7 @@ import React from 'react'
 import { asyncComponent } from '@jaredpalmer/after'
 import { Route, Redirect } from 'react-router-dom'
 import { loadItem } from 'utils/localStorage'
-import Root from 'containers/Root'
+import Root from 'components/Root'
 
 const routes = [
   {

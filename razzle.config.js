@@ -27,7 +27,8 @@ module.exports = {
           runtimeChunk: true,
         }
       }
-      return { ...config, ...newConfig };
+      const theConfig = { ...config, ...newConfig }
+      return theConfig
     }
     return config;
   }
